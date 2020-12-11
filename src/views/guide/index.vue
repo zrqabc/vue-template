@@ -1,6 +1,6 @@
 <template>
   <div id="guide">
-    <p>导航页</p>
+    <p>导航 页</p>
   </div>
 </template>
 
