@@ -9,10 +9,9 @@ let echarts = require('echarts');
 Vue.prototype.$echarts = echarts
 import 'fullpage.js/vendors/scrolloverflow'
 import VueFullPage from 'vue-fullpage.js/dist/vue-fullpage.js'
-import VueWechatTitle from 'vue-wechat-title'
+
 
 Vue.use(VueFullPage)
-Vue.use(VueWechatTitle)
 Vue.config.productionTip = false
 
 new Vue({
