@@ -1,0 +1,97 @@
+/**
+ * 全局样式
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Microsoft YaHei", "SF Pro SC", "HanHei SC", "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  color: #333;
+  font-size: 14px;
+}
+body, h1, h2, h3, h4, h5, h6, p, ul, li, ol, dl, dt, dd, form, input, textarea, pre, figure {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+}
+th,i, u, del, b, em, strong {
+  font-style: normal;
+  text-decoration: none;
+  font-weight: normal;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+img {
+  border: 0;
+}
+
+
+/*对齐方式*/
+.text-center {
+  text-align: center !important;
+}
+.text-left {
+  text-align: left !important;
+}
+.text-right {
+  text-align: right !important;
+}
+/*清除浮动*/
+.clear:after {
+  content: '';
+  width: 0;
+  height: 0;
+  display: block;
+  clear: both;
+}
+/*单行文本省略号*/
+.s-ellipsis{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/*多行文本省略号
+webkit内核浏览器、移动端、微信可以，火狐不可以
+*/
+.m-ellipsis{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+/*input placeholder文字颜色*/
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #999;
+}
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #999;
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #999;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #999;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #999;
+}
+
+
+
+
+
+
+

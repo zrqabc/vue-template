@@ -3,28 +3,15 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 module.exports = {
+  publicPath: process.env.NODE_ENV=='development' ? '/' : '/',
   productionSourceMap: false,
-  publicPath: './',
-  outputDir: 'dist',
-  assetsDir: 'static',
   chainWebpack: (config) => {
     config.resolve.alias
       .set('@', resolve('./src'))
-      .set('~', resolve('./public'))
-    config.module
-      .rule('css')
-      .test(/\.css$/)
-      .oneOf('vue')
-      .resourceQuery(/\?vue/)
-      .use('px2rem')
-      .loader('px2rem-loader')
-      .options({
-        remUnit: 75
-      })
   },
   devServer: {
     host:'0.0.0.0',
-    port: 8000, // 端口
+    port: 8080, // 端口
     open: false, // 启动后打开浏览器
     proxy: {
       //配置跨域
@@ -36,10 +23,6 @@ module.exports = {
         }
       }
     }
-  },
-  configureWebpack: (config) => {
-    // 取消console打印    
-    config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
-  },
+  }
 
 }

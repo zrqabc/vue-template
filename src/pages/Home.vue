@@ -2,11 +2,10 @@
   <div>
     <full-page :options="options" id="fullpage" ref="fullpage">
       <div class="section firstname">
-        {{ enty }}
-        <about />
+       11111111
       </div>
       <div class="section">
-        <vants />
+        22222
       </div>
       <div class="section secondCont">
         <span>不是吧</span>
@@ -16,15 +15,9 @@
 </template>
 
 <script>
-import about from "@/components/HelloWorld";
-import vants from "@/components/Home";
 import { mapState, mapActions } from "vuex";
 export default {
-  name: "HelloWorld",
-  components: {
-    about,
-    vants,
-  },
+  components: {},
   computed: {
     ...mapState("home", ["enty"]),
   },
@@ -54,4 +47,4 @@ export default {
   },
 };
 </script>
-<style lang="less" scoped></style>
+<style lang="scss" scoped></style>
