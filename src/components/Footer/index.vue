@@ -26,6 +26,7 @@
   }
   .footer-con a{
     color: #fff;
+    font-size: 14px;
   }
   .footer-con .link{
     margin-right: 36px;

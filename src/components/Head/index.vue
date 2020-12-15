@@ -16,13 +16,17 @@
 
 </script>
 
-<style scoped>
-  .head-con img{
-    width: 90px;
-    height: 27px;
-    margin-top: 22px;
-    margin-left: 35px;
+<style scoped lang="scss">
+  .head-con {
+    margin-bottom: 12px;
+    img{
+      width: 90px;
+      height: 27px;
+      margin-top: 22px;
+      margin-left: 35px;
+    }
   }
+
 
 </style>
 

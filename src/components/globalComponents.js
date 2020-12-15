@@ -1,5 +1,5 @@
 import Vue from 'vue';
 
-// import Head from './Head/index';
+import Arrow from './Arrow/index';
 
-// Vue.component('Head',Head);
+Vue.component('Arrow',Arrow);
