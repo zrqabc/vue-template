@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import wx from "@/untils/share";
+import wx from "@/utils/share";
 import { mapActions } from "vuex";
 export default {
   name: "Share",

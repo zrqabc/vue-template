@@ -1,6 +1,6 @@
 /*封装axios*/
 import axios from 'axios'
-import { filterParams } from "@/untils/tools.js";
+import { filterParams } from "@/utils/tools.js";
 
 
 //实例axiosMas用于请求 http://apiappmas.cbi360.net

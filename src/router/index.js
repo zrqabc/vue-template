@@ -11,6 +11,10 @@ const routes = [
     path: '/search',
     name: 'search',
     component: () => import('@/pages/search/index')
+  },{
+    path: '/resultlist',
+    name: 'resultlist',
+    component: () => import('@/pages/resultlist/index')
   },
 
 

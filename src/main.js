@@ -4,10 +4,10 @@ import router from './router'
 import store from './store'
 
 import '@/assets/css/index.scss'
-import '@/untils/rem.js'
+import '@/utils/rem.js'
 
-import '@/components/GlobalComponents.js'
-import '@/assets/mixins/GlobalMixins.js'
+import '@/components/globalComponents.js'
+import '@/assets/mixins/globalMixins.js'
 
 import '@/plugs/vant.js'
 
