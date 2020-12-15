@@ -6,19 +6,23 @@
         <span>X</span>
       </div>
       <div class="btn">搜索</div>
-      <div class="search-list">
+      <div class="search-list" style="display: none">
         <ul>
           <li v-for="(item,index) in 5" :key="index">筑龙股份科技技术有限公司</li>
         </ul>
       </div>
     </div>
-
+    <!--搜索错误-->
+    <SearchError></SearchError>
   </div>
 </template>
 
 <script>
+  import SearchError from './components/SearchError';
   export default {
-    components: {},
+    components: {
+      SearchError
+    },
     data() {
       return {}
     },

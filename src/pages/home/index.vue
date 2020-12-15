@@ -11,7 +11,7 @@
       <input type="text" placeholder="请输入企业全称，领取成绩单" @click="clickInput">
       <div class="btn" @click="clickInput">领取</div>
     </div>
-    <router-link to="/resultlist" class="look-btn">查看企业榜单>>></router-link>
+    <router-link to="/resultlist" class="look-btn italic">查看企业榜单>>></router-link>
   </div>
 </template>
 

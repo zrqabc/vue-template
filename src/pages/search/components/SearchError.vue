@@ -1,0 +1,98 @@
+<template>
+  <div class="search-error">
+    <div class="img-con">
+      <img src="https://img.cbi360.net/2020/12/15/7fdfed9d-3fae-427b-ad7d-adb803e32999.png" alt="" class="img-people">
+      <img src="https://img.cbi360.net/2020/12/15/1a4816e2-88f1-4a52-8ac5-f4e20402e197.png" alt="" class="img-text">
+    </div>
+    <div class="text-con italic">
+      <p class="italic">请确保您输入的是施工企业全称</p>
+      <p class="italic">如仍有问题，请联系成绩单保管员</p>
+      <p class="italic">电话:
+        <a href="tel:18969186302">18969186302</a>
+      </p>
+    </div>
+    <div class="btn-con italic">
+      <router-link to="/" class="btn-back">返回首页</router-link>
+      <router-link to="/resultlist" class="btn-look">查看企业榜单</router-link>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default{
+    components: {},
+    data(){
+      return {}
+    },
+    created() {},
+    methods: {}
+  }
+
+</script>
+
+<style scoped lang="scss">
+  @import "@/assets/css/variables.scss";
+  .img-con{
+    text-align: center;
+    margin-top: 1.7rem;
+    .img-people{
+      width: 1.95rem;
+    }
+    .img-text{
+      width: 5.42rem;
+    }
+  }
+  .text-con{
+    margin: 0.6rem 0.8rem;
+    p{
+      text-align: center;
+      a{
+        color: #FFF900;
+      }
+    }
+  }
+  .btn-con{
+    a{
+      display: block;
+      margin: 0 auto;
+      width: 3rem;
+      height: 0.7rem;
+      text-align: center;
+      line-height: 0.7rem;
+      background: $linear-gradient;
+      border-radius: 0.2rem;
+      color: #fff;
+    }
+    .btn-look{
+      background: #015CCC;
+      margin-top: 0.6rem;
+    }
+  }
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

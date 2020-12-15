@@ -26,11 +26,6 @@ const routes = [
     name: 'share',
     component: () => import('@/pages/Share')
   },
-  // {
-  //   path: '/home',
-  //   name: 'shahomere',
-  //   component: () => import('@/pages/Home')
-  // },
 
 
   /*其他*/

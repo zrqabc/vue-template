@@ -1,6 +1,16 @@
 <template>
   <div class="resultlist">
-    榜单
+    <van-swipe
+      style="height: calc(100vh - 88px);"
+      vertical
+      :loop="false"
+      :show-indicators="false"
+    >
+      <van-swipe-item>1</van-swipe-item>
+      <van-swipe-item>2</van-swipe-item>
+      <van-swipe-item>3</van-swipe-item>
+      <van-swipe-item>4</van-swipe-item>
+    </van-swipe>
   </div>
 </template>
 
@@ -16,7 +26,9 @@
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  @import "@/assets/css/variables.scss";
+
 
 </style>
 

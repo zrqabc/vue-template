@@ -13,9 +13,7 @@ import '@/plugs/vant.js'
 
 import echarts from 'echarts'
 Vue.prototype.$echarts = echarts;
-import 'fullpage.js/vendors/scrolloverflow'
-import VueFullPage from 'vue-fullpage.js/dist/vue-fullpage.js'
-Vue.use(VueFullPage)
+
 
 
 

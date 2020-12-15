@@ -1,7 +1,6 @@
 /*
 rem单位的使用：
 根据设计稿尺寸，只需改变750 ;
-rem用于css中，不能用于html行内样式中;
 用rem时必须给body设置默认字体大小，font-size=16px;
 浏览器本身 1rem = html字体大小的一倍;
 此方法中 1rem = 100px;
