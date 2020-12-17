@@ -5,21 +5,40 @@
       vertical
       :loop="false"
       :show-indicators="false"
-      initial-swipe="2"
+      initial-swipe="7"
     >
+      <!--中标业绩-->
       <van-swipe-item>
-        <!--中标业绩-->
         <Project></Project>
       </van-swipe-item>
+      <!--金额-->
       <van-swipe-item>
-        <!--金额-->
         <Money></Money>
       </van-swipe-item>
+      <!--业务范围-->
       <van-swipe-item>
-        <!--范围-->
         <Area />
       </van-swipe-item>
-      <van-swipe-item>4</van-swipe-item>
+      <!--资质-->
+      <van-swipe-item>
+        <Qualification></Qualification>
+      </van-swipe-item>
+      <!--荣誉-->
+      <van-swipe-item>
+        <Honor></Honor>
+      </van-swipe-item>
+      <!--建造师-->
+      <van-swipe-item>
+        <Builder></Builder>
+      </van-swipe-item>
+      <!--成绩对比-->
+      <van-swipe-item>
+        <ResultVs></ResultVs>
+      </van-swipe-item>
+      <!--得分页-->
+      <van-swipe-item>
+        <Score></Score>
+      </van-swipe-item>
     </van-swipe>
   </div>
 </template>
@@ -28,11 +47,21 @@
   import Project from './components/Project/index';
   import Money from './components/Money/index';
   import Area from './components/Area/index';
+  import Qualification from './components/Qualification/index';
+  import Honor from './components/Honor/index';
+  import Builder from './components/Builder/index';
+  import ResultVs from './components/ResultVs/index';
+  import Score from './components/Score/index';
   export default{
     components: {
       Project,
       Money,
-      Area
+      Area,
+      Qualification,
+      Honor,
+      Builder,
+      ResultVs,
+      Score,
     },
     data(){
       return {}
