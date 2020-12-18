@@ -38,8 +38,6 @@
           </span>
           </div>
         </div>
-
-
       </div>
     </div>
     <!--箭头-->
@@ -48,72 +46,75 @@
 </template>
 
 <script>
-  export default{
+  export default {
     components: {},
-    data(){
+    data() {
       return {}
     },
-    created() {},
-    methods: {}
+    created() {
+    },
+    methods: {
+
+    }
   }
 
 </script>
 
 <style scoped lang="scss">
   @import "@/assets/css/variables.scss";
-  .top-con{
+  .top-con {
     text-align: center;
     color: $blue;
-    .text{
+    .text {
       font-size: 0.28rem;
       font-weight: bold;
       margin-top: 0.4rem;
     }
-    .num-con{
+    .num-con {
       margin: 0.45rem 0;
-      .num{
+      .num {
         color: $yellow;
         font-weight: bold;
         font-size: 0.48rem;
       }
     }
   }
-  .middle-con{
-    .title-con{
+  .middle-con {
+    .title-con {
       text-align: center;
       margin-bottom: 0.3rem;
-      .img1{
+      .img1 {
         width: 3.76rem;
       }
     }
-    .text-con{
+    .text-con {
       font-size: 0.32rem;
       font-weight: bold;
       color: $blue;
       line-height: 0.48rem;
     }
   }
-  .bottom-con{
+  .bottom-con {
     margin-top: 0.97rem;
     display: flex;
     justify-content: space-around;
-    .title-con{
+    .title-con {
       text-align: center;
       margin-bottom: 0.3rem;
-      .img1{
+      .img1 {
         width: 2.6rem;
       }
-      .img2{
+      .img2 {
         width: 1.76rem;
       }
     }
-    .text-con{
+    .text-con {
       text-align: center;
-      span{
+      span {
         display: inline-block;
         color: $blue;
       }
-      i{
+      i {
         font-size: 0.48rem;
         font-weight: bold;
         color: $yellow;

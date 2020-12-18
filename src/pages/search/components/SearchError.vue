@@ -8,12 +8,12 @@
       <p class="italic">请确保您输入的是施工企业全称</p>
       <p class="italic">如仍有问题，请联系成绩单保管员</p>
       <p class="italic">电话:
-        <a href="tel:18969186302">18969186302</a>
+        <a class="italic" href="tel:18969186302">18969186302</a>
       </p>
     </div>
     <div class="btn-con italic">
-      <router-link to="/" class="btn-back">返回首页</router-link>
-      <router-link to="/resultlist" class="btn-look">查看企业榜单</router-link>
+      <router-link to="/" class="btn-back italic">返回首页</router-link>
+      <router-link to="/resultlist" class="btn-look italic">查看企业榜单</router-link>
     </div>
   </div>
 </template>
@@ -46,6 +46,8 @@
     margin: 0.6rem 0.8rem;
     p{
       text-align: center;
+      font-size: 0.28rem;
+      color: #fff;
       a{
         color: #FFF900;
       }

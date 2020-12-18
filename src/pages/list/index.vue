@@ -5,7 +5,7 @@
       vertical
       :loop="false"
       :show-indicators="false"
-      initial-swipe="7"
+      initial-swipe="0"
     >
       <!--中标业绩-->
       <van-swipe-item>
@@ -40,6 +40,8 @@
         <Score></Score>
       </van-swipe-item>
     </van-swipe>
+    <!--验证表单-->
+    <Form></Form>
   </div>
 </template>
 
@@ -52,6 +54,8 @@
   import Builder from './components/Builder/index';
   import ResultVs from './components/ResultVs/index';
   import Score from './components/Score/index';
+
+  import Form from './components/Project/Form'
   export default{
     components: {
       Project,
@@ -62,6 +66,7 @@
       Builder,
       ResultVs,
       Score,
+      Form
     },
     data(){
       return {}

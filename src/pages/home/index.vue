@@ -71,6 +71,7 @@
       border: none;
       color: #333;
       margin-right: 0.2rem;
+      font-size: 0.28rem;
     }
     .btn{
       display: inline-block;

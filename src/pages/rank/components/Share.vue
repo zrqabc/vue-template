@@ -26,7 +26,7 @@
     components: {},
     data(){
       return {
-        show: true,
+        show: false,
       }
     },
     created() {},

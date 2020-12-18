@@ -39,6 +39,16 @@
       <div class="back-con">
         <router-link to="/" class="btn italic">返回首页</router-link>
       </div>
+      <!--省份弹框-->
+      <van-dialog
+        v-model="show"
+        :show-confirm-button="false"
+        :close-on-click-overlay="false"
+      >
+        <ul class="provice-con">
+          <li v-for="(item,index) in 34" :key="index" @click="clickProvince(index)">北京</li>
+        </ul>
+      </van-dialog>
     </div>
     <!--分享提示页-->
     <Share></Share>
@@ -54,7 +64,8 @@
     data(){
       return {
         btns: ['全国','省份'],
-        activeIndex: 0
+        activeIndex: 0,
+        show: false
       }
     },
     created() {},
@@ -62,6 +73,14 @@
       //点击按钮
       clickBtn(index) {
         this.activeIndex = index;
+        switch (index) {
+          case 0: this.show = false;break;
+          case 1: this.show = true;break;
+        }
+      },
+      clickProvince(index) {
+        console.log(index);
+        this.show = false;
       }
 
     }
@@ -173,6 +192,24 @@
       text-align: center;
       color: #fff;
     }
+  }
+  .provice-con{
+    opacity: 0.9;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.18rem;
+    li{
+      color: #fff;
+      border: 1px solid #fff;
+      font-size: 14px;
+      padding: 0.1rem 0.2rem;
+      margin: 0.1rem 0.1rem;
+      border-radius: 3px;
+    }
+  }
+  .van-dialog{
+    background: #0660CD;
+    opacity: 0.9;
   }
 
 

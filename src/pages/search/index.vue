@@ -53,6 +53,7 @@
         outline: none;
         border: none;
         color: #333;
+        font-size: 0.28rem;
         margin-right: 0.2rem;
       }
       span{
