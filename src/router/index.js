@@ -4,17 +4,21 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/',//首页
     name: 'home',
     component: () => import('@/pages/home/index')
   },{
-    path: '/search',
+    path: '/search',//搜索页
     name: 'search',
     component: () => import('@/pages/search/index')
   },{
-    path: '/resultlist',
-    name: 'resultlist',
-    component: () => import('@/pages/resultlist/index')
+    path: '/list',//成绩单
+    name: 'list',
+    component: () => import('@/pages/list/index')
+  },{
+    path: '/rank',//榜单
+    name: 'rank',
+    component: () => import('@/pages/rank/index')
   },
 
 
