@@ -12,12 +12,14 @@
         </ul>
       </div>
     </div>
+    {{provinceList}}
     <!--搜索错误-->
     <SearchError></SearchError>
   </div>
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   import SearchError from './components/SearchError';
   export default {
     components: {
@@ -27,8 +29,19 @@
       return {}
     },
     created() {
+      this.getProvinceList();
     },
-    methods: {}
+    computed: {
+      ...mapState({
+        provinceList: (state) => { return state.report.provinceList },
+      })
+    },
+    methods: {
+      getProvinceList() {
+        this.$store.dispatch('report/getProvinceList');
+      }
+
+    }
   }
 
 </script>

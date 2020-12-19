@@ -10,16 +10,16 @@ module.exports = {
       .set('@', resolve('./src'))
   },
   devServer: {
-    host:'0.0.0.0',
+    host: '0.0.0.0',
     port: 8080, // 端口
     open: false, // 启动后打开浏览器
     proxy: {
       //配置跨域
       '/api': {
-        target: "https://www.easy-mock.com",
+        target: "http://apiappop.cbi360.net",
         changOrigin: true,
         pathRewrite: {
-          '^/api': ''
+          '/api': ''
         }
       }
     }

@@ -1,14 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import home from './modules/home'
-import app from './modules/app'
+import report from './modules/report'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
-    home,
-    app
+    report,
   }
 })
 

@@ -46,7 +46,7 @@
         :close-on-click-overlay="false"
       >
         <ul class="provice-con">
-          <li v-for="(item,index) in 34" :key="index" @click="clickProvince(index)">北京</li>
+          <li v-for="(item,index) in provinceList" :key="index" @click="clickProvince(item.ProvinceID)">{{item.ShortName}}</li>
         </ul>
       </van-dialog>
     </div>
@@ -56,6 +56,7 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   import Share from './components/Share'
   export default{
     components: {
@@ -68,8 +69,18 @@
         show: false
       }
     },
-    created() {},
+    created() {
+      this.getProvinceList();
+    },
+    computed: {
+      ...mapState({
+        provinceList: (state) => { return state.report.provinceList },
+      })
+    },
     methods: {
+      getProvinceList() {
+        this.$store.dispatch('report/getProvinceList');
+      },
       //点击按钮
       clickBtn(index) {
         this.activeIndex = index;
@@ -78,8 +89,8 @@
           case 1: this.show = true;break;
         }
       },
-      clickProvince(index) {
-        console.log(index);
+      clickProvince(provinceID) {
+        console.log(provinceID);
         this.show = false;
       }
 
