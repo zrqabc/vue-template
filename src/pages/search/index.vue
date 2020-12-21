@@ -2,19 +2,34 @@
   <div class="search-con">
     <div class="search-box">
       <div class="input-con">
-        <input type="text" placeholder="请输入企业全称，领取成绩单">
-        <span>X</span>
+        <input
+          type="text"
+          placeholder="请输入企业全称，领取成绩单"
+          v-model.trim="companyName"
+          @keyup="onKeyup"
+          @blur="onBlur"
+          @focus="onFocus"
+        >
+        <span @click="clearInput">X</span>
       </div>
-      <div class="btn">搜索</div>
-      <div class="search-list" style="display: none">
+      <div class="btn" @click="clickSearch">搜索</div>
+      <div class="search-list" v-show="searchMoreShow">
         <ul>
-          <li v-for="(item,index) in 5" :key="index">筑龙股份科技技术有限公司</li>
+          <li
+            v-for="(item,index) in companyNameList"
+            :key="index"
+            @click="$router.push({
+              path:'/list',
+              query:{
+                companyName: item.CompanyName
+              }
+            })"
+          >{{item.CompanyName}}</li>
         </ul>
       </div>
     </div>
-    {{provinceList}}
     <!--搜索错误-->
-    <SearchError></SearchError>
+    <SearchError v-show="searchError"></SearchError>
   </div>
 </template>
 
@@ -26,20 +41,68 @@
       SearchError
     },
     data() {
-      return {}
+      return {
+        searchError: false,
+        companyName: '',
+        onKeyup: null,//键盘事件
+        searchMoreShow: false,
+      }
     },
     created() {
-      this.getProvinceList();
+      this.clearInput();
+      this.onKeyup = this.$lodash.debounce(this.searchCompanyName,500);
     },
     computed: {
       ...mapState({
-        provinceList: (state) => { return state.report.provinceList },
+        companyNameList: (state) => { return state.report.companyName }
       })
     },
     methods: {
-      getProvinceList() {
-        this.$store.dispatch('report/getProvinceList');
-      }
+      //联想功能
+      async searchCompanyName() {
+        if(!this.companyName){
+          await this.$store.dispatch('report/changeCompanyNameList',[]);
+        }else{
+          //获取名字类似的企业
+          await this.$store.dispatch('report/searchCompanyName',{
+            companyName: this.companyName
+          });
+        }
+      },
+      //清空输入框
+      clearInput() {
+        this.companyName = '';
+        this.$store.dispatch('report/changeCompanyNameList',[]);
+        this.searchError = false;
+      },
+      //点击搜索
+      async clickSearch() {
+        if(this.companyName){
+          let res = await this.$store.dispatch('report/getReport',{
+            companyName: this.companyName
+          });
+          if(res.Code == 200 && res.Result) {
+            this.$router.push({
+              path:'/list',
+              query:{
+                companyName: res.Result.company.CompanyName
+              }
+            });
+          }else{
+            this.searchError = true;
+          }
+        }
+      },
+      //搜企业失去焦点
+      onBlur() {
+        setTimeout(() => {
+          this.searchMoreShow = false;
+        }, 200);
+      },
+      //搜企业获得焦点
+      onFocus() {
+        this.searchMoreShow = true;
+      },
 
     }
   }
@@ -95,6 +158,8 @@
       background: #fff;
       border-bottom-left-radius: 0.1rem;
       border-bottom-right-radius: 0.1rem;
+      max-height: 6.6rem;
+      overflow: scroll;
       li{
         color: #333;
         padding: 0.1rem 0.2rem;

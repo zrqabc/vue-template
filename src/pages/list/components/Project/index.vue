@@ -3,19 +3,17 @@
     <div class="main-bg">
       <div class="top-con">
         <h1 class="italic">亲爱的</h1>
-        <p class="text italic">北京中外建建筑设计有限公司</p>
+        <p class="text italic">{{report.company.CompanyName}}</p>
         <div class="num-con italic">
           2020年一共中了
-          <span class="num">4981</span>个标
+          <span class="num">{{report.company.TenderCount}}</span>个标
         </div>
       </div>
       <div class="middle-con">
         <div class="title-con">
           <img class="img1" src="https://img.cbi360.net/2020/12/15/1240cf02-16ab-4187-891d-d1c115f0f51f.png" alt="">
         </div>
-        <div class="text-con italic">
-          南京盛香园房地产开发有限公司公园广 场及城市绿地（2016G98O、R、S、 T、U、V、W、X、Y地块）建设项目W、O地块总承包
-        </div>
+        <div class="text-con italic">{{report.company.FirstTenderName}}</div>
       </div>
       <div class="bottom-con">
         <div class="item">
@@ -24,7 +22,7 @@
           </div>
           <div class="text-con italic">
             <span>
-              <i>北京</i>市
+              <i>{{report.company.OftenTenderCity}}</i>
             </span>
           </div>
         </div>
@@ -34,7 +32,7 @@
           </div>
           <div class="text-con italic">
             <span>
-            <i>2345</i>个标
+            <i>{{report.company.OftenTenderCityCount}}</i>个标
           </span>
           </div>
         </div>
@@ -46,12 +44,17 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   export default {
     components: {},
     data() {
       return {}
     },
-    created() {
+    created() {},
+    computed: {
+      ...mapState({
+        report: (state) => { return state.report.report }
+      })
     },
     methods: {
 
@@ -64,14 +67,18 @@
   @import "@/assets/css/variables.scss";
   .top-con {
     text-align: center;
-    color: $blue;
+    h1{
+      color: $blue;
+    }
     .text {
+      color: $blue;
       font-size: 0.28rem;
       font-weight: bold;
       margin-top: 0.4rem;
     }
     .num-con {
       margin: 0.45rem 0;
+      color: $blue;
       .num {
         color: $yellow;
         font-weight: bold;

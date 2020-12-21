@@ -28,7 +28,7 @@ const routes = [
   {
     path: '/share',
     name: 'share',
-    component: () => import('@/pages/Share')
+    component: () => import('@/pages/Share/index')
   },
 
 

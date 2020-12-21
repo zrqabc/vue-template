@@ -2,7 +2,7 @@
   <div class="main-con">
     <div class="text-con italic">
       <div class="text-item">
-        您已有<span class="num"> 298 </span>名注册建造师，其中
+        您已有<span class="num"> {{report.company.PeopleOneCount + report.company.PeopleTwoCount}} </span>名注册建造师，其中
       </div>
     </div>
     <div class="chart-con">
@@ -23,6 +23,8 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+  import { objArrSort } from '@/utils/tools.js'
   export default{
     components: {},
     data(){
@@ -32,45 +34,54 @@
       }
     },
     created() {},
+    mounted() {
+      this.area();
+    },
+    computed: {
+      ...mapState({
+        report: (state) => { return state.report.report }
+      }),
+    },
     methods: {
       //点击按钮
       clickBtn(index) {
         this.activeIndex = index;
       },
       //图表
-      area() {
-        let xdata = [];
-        let subtext = '';
-        let myChart = this.$echarts.init(document.getElementById('type'));
+      async area() {
+        await this.$store.dispatch('report/getReport',{
+          companyName: this.$route.query.companyName
+        });
+
+        let oneArr = this.report.peoples.filter((value) => {
+          return value.CategoryLevel == 1;
+        })
+        console.log(oneArr);
+        let xdata = this.chartData(oneArr);
+        // console.log(xdata);
+        let myChart = this.$echarts.init(document.getElementById('area'));
         let option = {
-          title: {
-            text: '司法风险',
-            subtext: '总计：' + subtext + "个",
-            subtextStyle: {
-              color: '#FC9142',
-              fontSize: 14
-            },
-            x: 'center'
-          },
-          tooltip: {
-            trigger: 'item',
-            formatter: '{b}<br>{c}，{d}%',
-          },
+          // tooltip: {
+          //   trigger: 'item',
+          //   formatter: '{b}<br>{c}，{d}%',
+          // },
           // color:['#6699FF','#FF6632','#C10000','#ABCBFF'],
           legend: {
             textStyle: {
-              color: '#fff'
+              color: '#312260'
             },
-            x:'center',
-            y:'bottom',
+            orient: 'vertical',
+            top: 'middle',
+            right: '10%',
           },
           series: [
             {
               type: 'pie',
-              radius: '45%',
-              center: ['50%', '40%'],
+              // radius: '45%',
+              center: ['40%', '50%'],
               data: xdata,
               label:{
+                show: false,
                 // position: 'inside',
                 formatter: '{c}，{d}%',
                 // width: '300px',
@@ -80,6 +91,35 @@
           ]
         };
         myChart.setOption(option);
+      },
+      //图表数据
+      chartData(data) {
+        let arr = JSON.parse(JSON.stringify(data));
+        let arr2 = arr.sort(objArrSort('PeopleCount',false));
+        let otherValue = arr2.slice(4);
+        let otherPeopleCount = 0;
+        otherValue.map((val) => {
+          otherPeopleCount += val.PeopleCount;
+        });
+        return [
+          {
+            value: arr2[0] ? arr2[0]['PeopleCount'] : 0,
+            name: arr2[0] ? arr2[0]['CategoryName'] : ''
+          },{
+            value: arr2[1] ? arr2[1]['PeopleCount'] : 0,
+            name: arr2[1] ? arr2[1]['CategoryName'] : ''
+          },{
+            value: arr2[2] ? arr2[2]['PeopleCount'] : 0,
+            name: arr2[2] ? arr2[2]['CategoryName'] : ''
+          },{
+            value: arr2[3] ? arr2[3]['PeopleCount'] : 0,
+            name: arr2[3] ? arr2[3]['CategoryName'] : ''
+          },
+          {
+            value: otherPeopleCount,
+            name: '其他'
+          },
+        ]
       }
 
     }

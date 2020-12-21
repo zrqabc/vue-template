@@ -5,7 +5,7 @@
       vertical
       :loop="false"
       :show-indicators="false"
-      initial-swipe="0"
+      initial-swipe="5"
     >
       <!--中标业绩-->
       <van-swipe-item>
@@ -40,12 +40,13 @@
         <Score></Score>
       </van-swipe-item>
     </van-swipe>
-    <!--验证表单-->
+    <!--验证码表单-->
     <Form></Form>
   </div>
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   import Project from './components/Project/index';
   import Money from './components/Money/index';
   import Area from './components/Area/index';
@@ -71,8 +72,27 @@
     data(){
       return {}
     },
-    created() {},
-    methods: {}
+    created() {
+      //获取成绩单
+      this.getReport();
+    },
+    computed: {
+      ...mapState({
+        report: (state) => { return state.report.report }
+      })
+    },
+    methods: {
+      //获取成绩单
+      async getReport() {
+        let res = await this.$store.dispatch('report/getReport',{
+          companyName: this.$route.query.companyName
+        });
+        if(res.Code != 200){
+          this.$router.push('/404');
+        }
+      }
+
+    }
   }
 
 </script>

@@ -13,7 +13,7 @@
     </div>
     <div class="btn-con italic">
       <router-link to="/" class="btn-back italic">返回首页</router-link>
-      <router-link to="/resultlist" class="btn-look italic">查看企业榜单</router-link>
+      <router-link to="/rank" class="btn-look italic">查看企业榜单</router-link>
     </div>
   </div>
 </template>

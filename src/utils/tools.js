@@ -41,6 +41,25 @@ export function parseCookie(cookieString = '') {
 }
 
 /**
+ * 数组对象根据属性值排序
+ * @param property 属性名
+ * @param desc true=升序 false=降序 默认升序
+ */
+export function objArrSort(property,desc=true) {
+  return function(object1, object2) {
+    let value1 = object1[property];
+    let value2 = object2[property];
+    if(desc == true){
+      // 升序
+      return value1 - value2;
+    }else{
+      // 降序
+      return value2 - value1;
+    }
+  }
+}
+
+/**
  * 
  * @param {*} source  数组
  * @param {*} id 每一项的id
@@ -104,7 +123,7 @@ export function reverseParent(id, dataArr) {
 
 
 /**
- * 节流函数用于输入框不能频繁触发 fn回调 delay 500
+ * 防抖函数用于输入框不能频繁触发 fn回调 delay 500
  */
 export function debounce(fn, delay = 500) {
   delay = delay || 600

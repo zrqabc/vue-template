@@ -14,7 +14,7 @@
           <input type="text" placeholder="请输入验证码" v-model="verifyCode">
         </div>
         <div class="form-item">
-          <div class="get">领取成绩单</div>
+          <div class="get" @click="clickReport">领取成绩单</div>
         </div>
       </div>
     </van-dialog>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   export default{
     components: {},
     data(){
@@ -31,14 +32,46 @@
         verifyCode: '',
       }
     },
-    created() {},
+    created() {
+      this.show = !this.isPermissions;
+    },
+    computed: {
+      ...mapState({
+        // report: (state) => { return state.report.report }
+      })
+    },
     methods: {
       //发送验证码
-      send() {
+      async send() {
         if(this.validate()){
-          console.log('发送验证码');
+          let res = await this.$store.dispatch('other/sendSMS',{
+            phone: this.phone
+          })
+          if(res.Code == 200){
+            //发送成功
+            this.$toast(res.Msg);
+          }else{
+            this.$toast(res.Msg);
+          }
         }
       },
+      //点击领取成绩单
+      async clickReport() {
+        if(this.validate2()){
+          let res = await this.$store.dispatch('other/userSMSIsVerify',{
+            phone: this.phone,
+            verify: this.verifyCode
+          })
+          if(res.Code == 200){
+            //成功
+            this.$cookie.setCookie('isPermissions','true',7);
+            this.show = false;
+          }else{
+            this.$toast(res.Msg);
+          }
+        }
+      },
+      //验证手机号
       validate() {
         if(!this.phone){
           this.$toast('请输入手机号码');
@@ -50,21 +83,21 @@
           return true;
         }
       },
-      //验证
-      // validate() {
-      //   if(!this.phone){
-      //     this.$toast('请输入手机号码');
-      //     return false;
-      //   }else if(!/^1[345678]\d{9}$/.test(this.phone)){
-      //     this.$toast('请输入正确的手机号码');
-      //     return false;
-      //   }else if(!this.password){
-      //     this.$toast('请输入验证码');
-      //     return false;
-      //   }else {
-      //     return true;
-      //   }
-      // }
+      //验证验证码
+      validate2() {
+        if(!this.phone){
+          this.$toast('请输入手机号码');
+          return false;
+        }else if(!/^1[345678]\d{9}$/.test(this.phone)){
+          this.$toast('请输入正确的手机号码');
+          return false;
+        }else if(!this.verifyCode){
+          this.$toast('请输入验证码');
+          return false;
+        }else {
+          return true;
+        }
+      }
 
     }
   }

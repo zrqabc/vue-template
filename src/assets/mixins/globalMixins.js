@@ -28,10 +28,14 @@ const mixin = {
       return val <= 0 ? "--" : val + '万';
     },
   },
-  computed: {},
+  computed: {
+    //是否有权限
+    isPermissions() {
+      let permissions = this.$cookie.getCookie('isPermissions');
+      return permissions ? true : false;
+    }
+  },
   methods: {
-
-
 
   }
 }

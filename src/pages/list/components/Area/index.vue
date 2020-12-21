@@ -1,49 +1,126 @@
 <template>
   <div class="main-con">
     <div class="main-bg">
-      <div class="item-con">
-        <div class="title-con">
-          <img class="img1" src="https://img.cbi360.net/2020/12/15/32299e6e-a857-40d0-a82e-2fa67ae2ef5a.png" alt="">
-        </div>
-        <div class="text-con italic">
-          <div class="text-top">
-            <span class="province" v-for="(item,index) in 3" :key="index">浙江省</span>
-            <span>等</span>
+      <!--新开拓-->
+      <div class="new-con">
+        <!--1个-->
+        <div class="item-con" v-if="newArea.length == 1">
+          <div class="title-con">
+            <img class="img1" src="https://img.cbi360.net/2020/12/15/32299e6e-a857-40d0-a82e-2fa67ae2ef5a.png" alt="">
           </div>
-          <div class="text-top">
-            <span class="num">128</span>
-            <span>个</span>
-            建筑市场
+          <div class="text-con italic">
+            <div class="text-top">
+              <span class="province">{{newArea[0].Province}}</span>建筑市场
+            </div>
+          </div>
+        </div>
+        <!--2个-->
+        <div class="item-con" v-if="newArea.length == 2">
+          <div class="title-con">
+            <img class="img1" src="https://img.cbi360.net/2020/12/15/32299e6e-a857-40d0-a82e-2fa67ae2ef5a.png" alt="">
+          </div>
+          <div class="text-con italic">
+            <div class="text-top">
+              <span class="province">{{newArea[0].Province}}、{{newArea[1].Province}}</span>
+              <span class="num">2</span>
+              <span>个</span>建筑市场
+            </div>
+          </div>
+        </div>
+        <!--3个-->
+        <div class="item-con" v-if="newArea.length == 3">
+          <div class="title-con">
+            <img class="img1" src="https://img.cbi360.net/2020/12/15/32299e6e-a857-40d0-a82e-2fa67ae2ef5a.png" alt="">
+          </div>
+          <div class="text-con italic">
+            <div class="text-top">
+              <span class="province">{{newArea[0].Province}}、{{newArea[1].Province}}、{{newArea[2].Province}}</span>
+              <span class="num">3</span>
+              <span>个</span>建筑市场
+            </div>
+          </div>
+        </div>
+        <!--3个以上-->
+        <div class="item-con" v-if="newArea.length > 3">
+          <div class="title-con">
+            <img class="img1" src="https://img.cbi360.net/2020/12/15/32299e6e-a857-40d0-a82e-2fa67ae2ef5a.png" alt="">
+          </div>
+          <div class="text-con italic">
+            <div class="text-top">
+              <span class="province">{{newArea[0].Province}}、{{newArea[1].Province}}、{{newArea[2].Province}}</span>
+              <span>等</span>
+            </div>
+            <div class="text-top">
+              <span class="num">{{newArea.length}}</span>
+              <span>个</span>
+              建筑市场
+            </div>
           </div>
         </div>
       </div>
-      <div class="item-con item-con2">
-        <div class="title-con italic">
-          截止2020年
-        </div>
-        <div class="text-con italic">
-          <div class="text-top">您的业务范围已遍布全国</div>
-          <div class="text-top">
-            <span class="province" v-for="(item,index) in 3" :key="index">浙江省</span>
-            <span>等</span>
-          </div>
-          <div class="text-top">
-            <span class="num">128</span>
-            <span>个</span>
-            地区
+      <!--所有-->
+      <div class="all-con">
+        <!--1个-->
+        <div class="item-con item-con2" v-if="report.projectRanges.length == 1">
+          <div class="title-con italic">截止2020年</div>
+          <div class="text-con italic">
+            <div class="text-top">
+              您的业务范围主要在
+              <span class="province">{{report.projectRanges[0].Province}}</span>
+            </div>
           </div>
         </div>
-        <!--市场无变化-->
-        <div class="nochange-con">
-          <img src="https://img.cbi360.net/2020/12/16/6e051111-1324-4470-b6db-df0c362da25e.png" alt="">
+        <!--2个-->
+        <div class="item-con item-con2" v-if="report.projectRanges.length == 2">
+          <div class="title-con italic">截止2020年</div>
+          <div class="text-con italic">
+            <div class="text-top">您的业务范围主要在</div>
+            <div class="text-top">
+              <span class="province">{{report.projectRanges[0].Province}}、{{report.projectRanges[1].Province}}</span>
+              <span class="num">2</span>
+              <span>个</span>地区
+            </div>
+          </div>
+        </div>
+        <!--3个-->
+        <div class="item-con item-con2" v-if="report.projectRanges.length == 3">
+          <div class="title-con italic">
+            截止2020年
+          </div>
+          <div class="text-con italic">
+            <div class="text-top">您的业务范围主要在</div>
+            <div class="text-top">
+              <span class="province">{{report.projectRanges[0].Province}}、{{report.projectRanges[1].Province}}、{{report.projectRanges[2].Province}}</span>
+              <span class="num">3</span>
+              <span>个</span>地区
+            </div>
+          </div>
+        </div>
+        <!--3个以上-->
+        <div class="item-con item-con2" v-if="report.projectRanges.length > 3">
+          <div class="title-con italic">
+            截止2020年
+          </div>
+          <div class="text-con italic">
+            <div class="text-top">您的业务范围已遍布全国</div>
+            <div class="text-top">
+              <span class="province">{{report.projectRanges[0].Province}}、{{report.projectRanges[1].Province}}、{{report.projectRanges[2].Province}}</span>
+              <span>等</span>
+            </div>
+            <div class="text-top">
+              <span class="num">{{report.projectRanges.length}}</span>
+              <span>个</span>地区
+            </div>
+          </div>
         </div>
       </div>
+      <!--市场无变化-->
+      <div class="nochange-con" v-if="newArea.length == 0">
+        <img src="https://img.cbi360.net/2020/12/16/6e051111-1324-4470-b6db-df0c362da25e.png" alt="">
+      </div>
+      <!--图表-->
       <div class="chart-con">
-        <div id="area">
-
-        </div>
-
-
+        <div id="area"></div>
       </div>
     </div>
     <!--箭头-->
@@ -52,47 +129,58 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+  import { objArrSort } from '@/utils/tools.js'
   export default{
     components: {},
     data(){
       return {}
     },
     created() {},
+    mounted() {
+      this.area();
+    },
+    computed: {
+      ...mapState({
+        report: (state) => { return state.report.report }
+      }),
+      //新开拓
+      newArea() {
+        return this.report.projectRanges.filter((value,key) => {
+          return value.IsNew == 1;
+        })
+      },
+    },
     methods: {
       //图表
-      area() {
-        let xdata = [];
-        let subtext = '';
-        let myChart = this.$echarts.init(document.getElementById('type'));
+      async area() {
+        await this.$store.dispatch('report/getReport',{
+          companyName: this.$route.query.companyName
+        });
+        let xdata = this.chartData();
+        let myChart = this.$echarts.init(document.getElementById('area'));
         let option = {
-          title: {
-            text: '司法风险',
-            subtext: '总计：' + subtext + "个",
-            subtextStyle: {
-              color: '#FC9142',
-              fontSize: 14
-            },
-            x: 'center'
-          },
-          tooltip: {
-            trigger: 'item',
-            formatter: '{b}<br>{c}，{d}%',
-          },
+          // tooltip: {
+          //   trigger: 'item',
+          //   formatter: '{b}<br>{c}，{d}%',
+          // },
           // color:['#6699FF','#FF6632','#C10000','#ABCBFF'],
           legend: {
             textStyle: {
-              color: '#fff'
+              color: '#312260'
             },
-            x:'center',
-            y:'bottom',
+            orient: 'vertical',
+            top: 'middle',
+            right: '10%',
           },
           series: [
             {
               type: 'pie',
-              radius: '45%',
-              center: ['50%', '40%'],
+              // radius: '45%',
+              center: ['40%', '50%'],
               data: xdata,
               label:{
+                show: false,
                 // position: 'inside',
                 formatter: '{c}，{d}%',
                 // width: '300px',
@@ -102,6 +190,32 @@
           ]
         };
         myChart.setOption(option);
+      },
+      //图表数据
+      chartData() {
+        let arr = JSON.parse(JSON.stringify(this.report.projectRanges));
+        let arr2 = arr.sort(objArrSort('TenderCount',false));
+        let otherValue = arr2.slice(3);
+        let otherTenderCount = 0;
+        otherValue.map((val) => {
+          otherTenderCount += val.TenderCount;
+        });
+        return [
+          {
+            value: arr2[0] ? arr2[0]['TenderCount'] : 0,
+            name: arr2[0] ? arr2[0]['Province'] : ''
+          },{
+            value: arr2[1] ? arr2[1]['TenderCount'] : 0,
+            name: arr2[1] ? arr2[1]['Province'] : ''
+          },{
+            value: arr2[2] ? arr2[2]['TenderCount'] : 0,
+            name: arr2[2] ? arr2[2]['Province'] : ''
+          },
+          {
+            value: otherTenderCount,
+            name: '其他'
+          },
+        ]
       }
 
     }

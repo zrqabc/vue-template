@@ -3,24 +3,26 @@
     <div class="main-bg">
       <div class="top-con">
         <h1 class="italic">2020年,您的中标总金额达</h1>
-        <p class="text italic">2222222222</p>
+        <p class="text italic">
+          <i>{{report.company.TenderMoneySum}}</i>万
+        </p>
       </div>
       <div class="middle-con">
         <div class="title-con">
           <img class="img1" src="https://img.cbi360.net/2020/12/15/e539f61c-10eb-4bc2-8546-fb8b928a6fa4.png" alt="">
         </div>
-        <div class="text-con italic">
-          南京盛香园房地产开发有限公司公园广 场及城市绿地（2016G98O、R、S、 T、U、V、W、X、Y地块）建设项目W、O地块总承包
-        </div>
+        <div class="text-con italic">{{report.company.TenderMoneyMaxName}}</div>
       </div>
       <div class="bottom-con">
         <div class="item">
           <div class="title-con">金额为</div>
-          <div class="text-con italic">xxxxxxxx</div>
+          <div class="text-con italic">
+            <i>{{report.company.TenderMoneyMax}}</i>万
+          </div>
         </div>
         <div class="item">
           <div class="title-con con2">常中标的金额范围是</div>
-          <div class="text-con italic">xxxxxxxxxxxxxxxxx</div>
+          <div class="text-con italic">{{report.company.OftenTenderMoney}}</div>
         </div>
       </div>
     </div>
@@ -30,12 +32,18 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   export default{
     components: {},
     data(){
       return {}
     },
     created() {},
+    computed: {
+      ...mapState({
+        report: (state) => { return state.report.report }
+      })
+    },
     methods: {}
   }
 
@@ -45,12 +53,18 @@
   @import "@/assets/css/variables.scss";
   .top-con{
     text-align: center;
-    color: $blue;
+    h1{
+      color: $blue;
+    }
     .text{
-      color: $yellow;
-      font-weight: bold;
-      font-size: 0.48rem;
+      color: $blue;
       margin-top: 0.2rem;
+      i{
+        color: $yellow;
+        font-weight: bold;
+        font-size: 0.48rem;
+        margin-top: 0.2rem;
+      }
     }
     .num-con{
       margin: 0.45rem 0;
@@ -71,10 +85,13 @@
       }
     }
     .text-con{
-      font-size: 0.32rem;
-      font-weight: bold;
       color: $blue;
-      line-height: 0.48rem;
+      i{
+        font-size: 0.32rem;
+        font-weight: bold;
+        color: $yellow;
+        line-height: 0.48rem;
+      }
     }
   }
   .bottom-con{
@@ -100,9 +117,12 @@
     }
     .text-con{
       text-align: center;
-      font-size: 0.48rem;
-      font-weight: bold;
-      color: $yellow;
+      color: $blue;
+      i{
+        font-size: 0.48rem;
+        font-weight: bold;
+        color: $yellow;
+      }
     }
   }
 

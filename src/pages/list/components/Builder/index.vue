@@ -7,10 +7,11 @@
       <div class="builder-con">
         <!--都有-->
         <All></All>
+        <!--<All v-show="report.company.PeopleOneCount && report.company.PeopleTwoCount"></All>-->
         <!--只有一级-->
-        <!--<One></One>-->
+        <!--<One v-show="report.company.PeopleOneCount && !report.company.PeopleTwoCount"></One>-->
         <!--只有二级-->
-        <!--<Two></Two>-->
+        <!--<Two v-show="!report.company.PeopleOneCount && report.company.PeopleTwoCount"></Two>-->
       </div>
     </div>
     <!--箭头-->
@@ -19,9 +20,10 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   import All from './All'
-  import One from './One'
-  import Two from './Two'
+  // import One from './One'
+  // import Two from './Two'
   export default{
     components: {
       All,
@@ -32,6 +34,11 @@
       return {}
     },
     created() {},
+    computed: {
+      ...mapState({
+        report: (state) => { return state.report.report }
+      }),
+    },
     methods: {
 
     }

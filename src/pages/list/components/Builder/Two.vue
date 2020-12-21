@@ -14,6 +14,8 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+  import { objArrSort } from '@/utils/tools.js'
   export default{
     components: {},
     data(){
@@ -22,6 +24,14 @@
       }
     },
     created() {},
+    mounted() {
+      this.area();
+    },
+    computed: {
+      ...mapState({
+        report: (state) => { return state.report.report }
+      }),
+    },
     methods: {
       //图表
       area() {
