@@ -8,7 +8,7 @@
       <div class="form">
         <div class="form-item">
           <input type="text" placeholder="请输入手机号领取成绩单" v-model="phone">
-          <div class="send" @click="send">发送验证码</div>
+          <div class="send" :class="{gray: isGray}" @click="send">{{sendText}}</div>
         </div>
         <div class="form-item">
           <input type="text" placeholder="请输入验证码" v-model="verifyCode">
@@ -28,6 +28,8 @@
     data(){
       return {
         show: false,
+        sendText: '发送验证码',
+        isGray: false,
         phone: '',
         verifyCode: '',
       }
@@ -50,6 +52,8 @@
           if(res.Code == 200){
             //发送成功
             this.$toast(res.Msg);
+            //倒计时
+            this.timeDown();
           }else{
             this.$toast(res.Msg);
           }
@@ -97,6 +101,19 @@
         }else {
           return true;
         }
+      },
+      //倒计时
+      timeDown() {
+        this.isGray = true;
+        this.sendText = 60;
+        let t = setInterval(() => {
+          this.sendText--;
+          if(this.sendText <= 0){
+            clearInterval(t);
+            this.sendText = '发送验证码';
+            this.isGray = false;
+          }
+        },1000)
       }
 
     }
@@ -132,6 +149,10 @@
       text-align: center;
       border-radius: 0.5rem;
       background: linear-gradient(174deg, #004DC4 5%, #0660CD 96%);
+    }
+    .gray{
+      background: gray;
+      pointer-events: none;
     }
     .get{
       width: 3rem;
