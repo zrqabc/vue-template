@@ -22,7 +22,7 @@
         </div>
         <div class="item">
           <div class="title-con con2">常中标的金额范围是</div>
-          <div class="text-con italic">{{report.company.OftenTenderMoney}}</div>
+          <div class="text-con italic often">{{report.company.OftenTenderMoney}}</div>
         </div>
       </div>
     </div>
@@ -123,6 +123,11 @@
         font-weight: bold;
         color: $yellow;
       }
+    }
+    .often{
+      color: $yellow;
+      font-size: 0.48rem;
+      font-weight: bold;
     }
   }
 

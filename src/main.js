@@ -23,6 +23,8 @@ Vue.prototype.$lodash = lodash;
 
 
 
+
+
 Vue.config.productionTip = false
 
 new Vue({

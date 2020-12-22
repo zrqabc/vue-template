@@ -31,8 +31,13 @@ const mixin = {
   computed: {
     //是否有权限
     isPermissions() {
-      let permissions = this.$cookie.getCookie('isPermissions');
-      return permissions ? true : false;
+      let result = this.$cookie.getCookie('isPermissions');
+      return result ? true : false;
+    },
+    //是否分享过
+    isShare() {
+      let result = this.$cookie.getCookie('isShare');
+      return result ? true : false;
     }
   },
   methods: {

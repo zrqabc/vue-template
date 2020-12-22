@@ -5,13 +5,13 @@
         <div class="title-con italic">2020年建企成绩单</div>
         <div class="top-con">
           <h1 class="italic">亲爱的</h1>
-          <p class="text italic">北京中外建建筑设计有限公司</p>
+          <p class="text italic">{{report.company.CompanyName}}</p>
           <div class="num-con italic">
             <p class="italic">
-              您的综合实力为：<span class="num">4981.99</span>
+              您的综合实力为：<span class="num">{{report.company.Score}}</span>
             </p>
             <p class="italic">
-              您已打败了：<span class="num">98%</span>建筑同行
+              您已打败了<span class="num">{{(report.company.Score * 1.0132/10).toFixed(0)}}%</span>建筑同行
             </p>
           </div>
         </div>
@@ -25,7 +25,7 @@
           <router-link to="/rank" class="look-btn italic">晒成绩</router-link>
         </div>
         <div class="right">
-          <img src="https://cdn.cbi360.net/global/images/qrcode-app.png" alt="">
+          <img src="https://img.cbi360.net/2020/12/22/fc102740-73a1-49b1-adca-018515a067f2.png" alt="">
           <p>生成我的成绩单</p>
         </div>
       </div>
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   export default{
     components: {},
     data(){
@@ -43,6 +44,11 @@
       }
     },
     created() {},
+    computed: {
+      ...mapState({
+        report: (state) => { return state.report.report }
+      }),
+    },
     methods: {
 
     }

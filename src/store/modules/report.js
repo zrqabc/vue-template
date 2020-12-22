@@ -11,6 +11,7 @@ const state = {
     peoples: [],
     history: {}
   },
+  reportTop: [],//榜单
 }
 const mutations = {
   getProvinceList(state, params) {
@@ -24,6 +25,9 @@ const mutations = {
   },
   getReport(state, params) {
     state.report = params;
+  },
+  getReportTop(state, params) {
+    state.reportTop = params;
   },
 }
 const actions = {
@@ -48,6 +52,13 @@ const actions = {
     const res = await api.getReport(params);
     if (res.Code == 200 && res.Result) {
       commit('getReport', res.Result);
+    }
+    return res;
+  },
+  async getReportTop({commit}, params) {//获取成绩单
+    const res = await api.getReportTop(params);
+    if (res.Code == 200 && res.Result) {
+      commit('getReportTop', res.Result);
     }
     return res;
   },

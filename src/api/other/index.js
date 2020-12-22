@@ -14,6 +14,13 @@ export function userSMSIsVerify(params) {//验证手机是否有效
     params: params
   })
 }
+export function getWeChatShareData(params) {//获取微信初始化数据
+  return request({
+    url: '/api/Other/WeChatShareData',
+    method: 'get',
+    params: params
+  })
+}
 
 
 

@@ -3,8 +3,9 @@
     <van-popup
       v-model="show"
       :close-on-popstate="true"
+      :close-on-click-overlay="false"
     >
-      <div class="con" @click="show = false">
+      <div class="con">
         <img class="guide-img" src="https://img.cbi360.net/2020/12/17/eb58e46a-e25a-428c-a33f-c5a81e91b42c.png" alt="">
         <div class="text">
           恭候您多时了<br>
@@ -22,6 +23,8 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+  import wxShare from '@/utils/wxShare.js'
   export default{
     components: {},
     data(){
@@ -29,8 +32,31 @@
         show: false,
       }
     },
-    created() {},
-    methods: {}
+    created() {
+      this.show = !this.isShare;
+      this.getWeChatShareData();
+    },
+    computed: {
+      ...mapState({
+        weChatShareData: (state) => { return state.other.weChatShareData }
+      })
+    },
+    methods: {
+      //获取微信初始化数据
+      async getWeChatShareData() {
+        await this.$store.dispatch('other/getWeChatShareData',{
+          url: location.href
+        });
+        let option = {
+          title: '标题', // 分享标题
+          desc: '描述', // 分享描述
+          link: location.href, // 分享链接
+          imgUrl: 'https://img.cbi360.net/2020/12/22/a855a379-44e1-4985-aba3-e7520c364827.jpg', // 分享图标
+        }
+        wxShare(this.weChatShareData,option);
+      }
+
+    }
   }
 
 </script>

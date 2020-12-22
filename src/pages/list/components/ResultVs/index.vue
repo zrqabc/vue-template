@@ -5,7 +5,7 @@
         <div class="title-con italic">2019 VS 2020年度对比</div>
       </div>
       <div class="chart-con">
-        <div id="area">
+        <div id="resultvs">
 
         </div>
       </div>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   export default{
     components: {},
     data(){
@@ -31,53 +32,74 @@
       }
     },
     created() {},
+    mounted() {
+      this.resultvs();
+    },
+    computed: {
+      ...mapState({
+        report: (state) => { return state.report.report }
+      }),
+    },
     methods: {
       //图表
-      async trend() {
-        let xdata = [];
-        let sdata1 = [];
-        let sdata2 = [];
-        // this.projectOfAnnual.map((val)=>{
-        //   xdata.push(val.Year);
-        //   sdata1.push(val.ProjectCount);
-        //   sdata2.push(val.ProjectMoney);
-        // })
-        let myChart = this.$echarts.init(document.getElementById('trend'));
+      async resultvs() {
+        await this.$store.dispatch('report/getReport',{
+          companyName: this.$route.query.companyName
+        });
+        let xdata = ['中标量/个','中标总额/W','荣誉/项','业务范围/个省'];
+        let sdata1 = [
+          this.report.history.TenderCount,
+          this.report.history.TenderMoney,
+          this.report.history.RedCount,
+          this.report.history.BusinessRangeCount
+        ];
+        let sdata2 = [
+          this.report.company.TenderCount,
+          this.report.company.TenderMoneySum,
+          this.report.company.RedCompanyCount + this.report.company.RedBuilderCount + this.report.company.RedProjectCount,
+          this.report.projectRanges.length
+        ];
+        let myChart = this.$echarts.init(document.getElementById('resultvs'));
         let option = {
           tooltip: {
             trigger: 'axis',
             // formatter: '{b}：{c}'
           },
           legend: {
+            top: 'bottom',
+            left: 'right',
             textStyle: {
-              color: '#fff'
+              // color: '#fff'
             },
           },
-          // grid: {
-          //   width: '40%',
-          //   left: 'center',
-          // },
+          grid: {
+            width: '99%',//绘图区大小
+            left: 'center',
+          },
           xAxis: {
             type: 'category',
             data: xdata,
             axisLine: {
               lineStyle:{
-                color: '#ABCBFF'
+                // color: '#ABCBFF',
               }
             },
             axisLabel: {
-              formatter: '{value}年'
+              formatter: '{value}',
+              fontSize: 10,
+              interval: 0,//强制显示所有标签
             }
           },
           yAxis: [
             {
-              type: 'value',
+              show: false,
+              type: 'log',
               name: '数量/个',
               axisLabel: {
-                formatter: '{value}'
+                formatter: '{value}个'
               },
               axisLine: {
-                show: true,
+                show: false,
                 lineStyle: {
                   color: '#ABCBFF'
                 }
@@ -95,13 +117,14 @@
               }
             },
             {
-              type: 'value',
+              show: false,
+              type: 'log',
               name: '中标总额/亿',
               axisLabel: {
-                formatter: '{value}'
+                formatter: '{value}项'
               },
               axisLine: {
-                show: true,
+                show: false,
                 lineStyle: {
                   color: '#ABCBFF'
                 }
@@ -121,42 +144,31 @@
           ],
           series: [
             {
-              name: '中标次数',
+              name: '2019年',
               type: 'bar',
               data: sdata1,
               label: {
                 show: true,
                 position: 'top',
-                color: '#ABCBFF'
+                // color: '#ABCBFF'
               },
               itemStyle: {
-                color: new this.$echarts.graphic.LinearGradient(
-                  0, 0, 0, 1,
-                  [
-                    {offset: 0, color: '#0282DE'},
-                    {offset: 1, color: '#3F28D0'}
-                  ]
-                )
+                color: '#295EC6'
               },
             },
             {
-              name: '中标总额',
+              name: '2020年',
               type: 'bar',
               yAxisIndex: 1,
               data: sdata2,
+              barGap: '0%',//不同系列的柱间距离
               label: {
                 show: true,
                 position: 'top',
-                color: '#ABCBFF'
+                // color: '#ABCBFF'
               },
               itemStyle: {
-                color: new this.$echarts.graphic.LinearGradient(
-                  0, 0, 0, 1,
-                  [
-                    {offset: 0, color: '#B1CAFB'},
-                    {offset: 1, color: '#B1CAFB'}
-                  ]
-                )
+                color: '#2F235C'
               },
             }
           ]
@@ -186,11 +198,12 @@
     }
   }
   .chart-con{
-    width: 5.3rem;
+    width: 100%;
     height: 5.43rem;
     margin: 0 auto;
-    #area{
+    #resultvs{
       width: 100%;
+      height: 100%;
     }
   }
   .bottom-con{

@@ -21,6 +21,13 @@ export function getReport(params) {//获取成绩单
     params: params
   })
 }
+export function getReportTop(params) {//获取榜单
+  return request({
+    url: '/api/GetReportTop',
+    method: 'get',
+    params: params
+  })
+}
 
 
 

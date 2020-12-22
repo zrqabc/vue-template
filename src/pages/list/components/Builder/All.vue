@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="chart-con">
-      <div id="area">
+      <div id="people-all">
 
       </div>
     </div>
@@ -34,33 +34,51 @@
       }
     },
     created() {},
-    mounted() {
-      this.area();
+    async mounted() {
+      await this.$store.dispatch('report/getReport',{
+        companyName: this.$route.query.companyName
+      });
+      this.peopleChart(this.oneArr);
     },
     computed: {
       ...mapState({
         report: (state) => { return state.report.report }
       }),
+      oneArr() {
+        return this.report.peoples.filter((value) => {
+          return value.CategoryLevel == 1;
+        })
+      },
+      twoArr() {
+        return this.report.peoples.filter((value) => {
+          return value.CategoryLevel == 2;
+        })
+      },
     },
     methods: {
       //点击按钮
       clickBtn(index) {
         this.activeIndex = index;
+        switch (index) {
+          case 0: this.peopleChart(this.oneArr);break;
+          case 1: this.peopleChart(this.twoArr);break;
+        }
       },
       //图表
-      async area() {
-        await this.$store.dispatch('report/getReport',{
-          companyName: this.$route.query.companyName
-        });
-
-        let oneArr = this.report.peoples.filter((value) => {
-          return value.CategoryLevel == 1;
-        })
-        console.log(oneArr);
-        let xdata = this.chartData(oneArr);
-        // console.log(xdata);
-        let myChart = this.$echarts.init(document.getElementById('area'));
+      peopleChart(data) {
+        let subtext = this.activeIndex==0 ? `一级建造师有 ${this.report.company.PeopleOneCount} 名` : `二级建造师有 ${this.report.company.PeopleTwoCount} 名`;
+        let xdata = this.chartData(data);
+        let myChart = this.$echarts.init(document.getElementById('people-all'));
         let option = {
+          title: {
+            // text: text,
+            subtext: subtext,
+            subtextStyle: {
+              color: '#312260',
+              fontSize: 14
+            },
+            x: 'center'
+          },
           // tooltip: {
           //   trigger: 'item',
           //   formatter: '{b}<br>{c}，{d}%',
@@ -70,15 +88,15 @@
             textStyle: {
               color: '#312260'
             },
-            orient: 'vertical',
-            top: 'middle',
-            right: '10%',
+            // orient: 'vertical',
+            bottom: '0',
+            // right: '10%',
           },
           series: [
             {
               type: 'pie',
-              // radius: '45%',
-              center: ['40%', '50%'],
+              radius: '68%',
+              // center: ['50%', '42%'],
               data: xdata,
               label:{
                 show: false,
@@ -150,9 +168,9 @@
     margin: 0 auto;
     border: 1px solid #312260;
     box-shadow: 4px 0px 8px 1px rgba(52, 54, 165, 0.21);
-    #area{
+    #people-all{
       width: 100%;
-      height: 4.44rem;
+      height: 100%;
     }
   }
   .btn-con{

@@ -2,7 +2,7 @@
   <div class="rank-con">
     <div class="main-bg">
       <div class="title-con">
-        2020年<span>浙江省</span>企业综合实力排行榜
+        2020年<span>{{provinceName}}</span>企业综合实力排行榜
       </div>
       <div class="btn-con">
         <div
@@ -24,12 +24,17 @@
             <th>综合实力</th>
             <th>点击领取</th>
           </tr>
-          <tr v-for="(item,index) in 10" :key="index">
+          <tr v-for="(item,index) in reportTop" :key="index">
             <td>{{index + 1}}</td>
-            <td class="text-left">浙江省有限公司浙江省</td>
-            <td>1000</td>
+            <td class="text-left">{{item.CompanyName}}</td>
+            <td>{{item.Score}}</td>
             <td>
-              <div class="btn">领取</div>
+              <div
+                class="btn"
+                @click="$router.push(
+                  {path: '/list',query: {companyName: item.CompanyName}}
+                )"
+              >领取</div>
             </td>
           </tr>
           </tbody>
@@ -46,7 +51,7 @@
         :close-on-click-overlay="false"
       >
         <ul class="provice-con">
-          <li v-for="(item,index) in provinceList" :key="index" @click="clickProvince(item.ProvinceID)">{{item.ShortName}}</li>
+          <li v-for="(item,index) in provinceList" :key="index" @click="clickProvince(item.ProvinceID,item.Province)">{{item.ShortName}}</li>
         </ul>
       </van-dialog>
     </div>
@@ -66,32 +71,53 @@
       return {
         btns: ['全国','省份'],
         activeIndex: 0,
-        show: false
+        show: false,
+        provinceID: -1,
+        provinceName: '全国',
       }
     },
     created() {
-      this.getProvinceList();
+      this.getReportTop();
     },
     computed: {
       ...mapState({
         provinceList: (state) => { return state.report.provinceList },
+        reportTop: (state) => { return state.report.reportTop },
       })
     },
     methods: {
-      getProvinceList() {
-        this.$store.dispatch('report/getProvinceList');
-      },
-      //点击按钮
+      //点击tab
       clickBtn(index) {
         this.activeIndex = index;
         switch (index) {
-          case 0: this.show = false;break;
-          case 1: this.show = true;break;
+          case 0:
+            this.provinceID = -1;
+            this.provinceName = '全国';
+            this.getReportTop();
+            this.show = false;
+            break;
+          case 1:
+            this.getProvinceList();
+            this.show = true;
+            break;
         }
       },
-      clickProvince(provinceID) {
-        console.log(provinceID);
+      //获取省份列表
+      getProvinceList() {
+        this.$store.dispatch('report/getProvinceList');
+      },
+      //获取榜单
+      getReportTop() {
+        this.$store.dispatch('report/getReportTop',{
+          provinceID: this.provinceID
+        });
+      },
+      //选择省份
+      clickProvince(provinceID,provinceName) {
         this.show = false;
+        this.provinceID = provinceID;
+        this.provinceName = provinceName;
+        this.getReportTop();
       }
 
     }
@@ -213,9 +239,11 @@
       color: #fff;
       border: 1px solid #fff;
       font-size: 14px;
-      padding: 0.1rem 0.2rem;
-      margin: 0.1rem 0.1rem;
+      margin: 0.1rem 0.25rem;
       border-radius: 3px;
+      width: 1rem;
+      text-align: center;
+      line-height: 0.6rem;
     }
   }
   .van-dialog{

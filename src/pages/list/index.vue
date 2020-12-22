@@ -5,7 +5,7 @@
       vertical
       :loop="false"
       :show-indicators="false"
-      initial-swipe="5"
+      initial-swipe="0"
     >
       <!--中标业绩-->
       <van-swipe-item>

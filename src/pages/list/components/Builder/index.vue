@@ -6,12 +6,11 @@
       </div>
       <div class="builder-con">
         <!--都有-->
-        <All></All>
-        <!--<All v-show="report.company.PeopleOneCount && report.company.PeopleTwoCount"></All>-->
+        <All v-if="report.company.PeopleOneCount && report.company.PeopleTwoCount"></All>
         <!--只有一级-->
-        <!--<One v-show="report.company.PeopleOneCount && !report.company.PeopleTwoCount"></One>-->
+        <One v-if="report.company.PeopleOneCount && !(report.company.PeopleTwoCount)"></One>
         <!--只有二级-->
-        <!--<Two v-show="!report.company.PeopleOneCount && report.company.PeopleTwoCount"></Two>-->
+        <Two v-if="report.company.PeopleTwoCount && !(report.company.PeopleOneCount)"></Two>
       </div>
     </div>
     <!--箭头-->
@@ -22,13 +21,13 @@
 <script>
   import { mapState } from 'vuex'
   import All from './All'
-  // import One from './One'
-  // import Two from './Two'
+  import One from './One'
+  import Two from './Two'
   export default{
     components: {
       All,
-      // One,
-      // Two,
+      One,
+      Two,
     },
     data(){
       return {}

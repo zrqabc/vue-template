@@ -1,5 +1,5 @@
 <template>
-  <div class="not-found">
+  <div class="error-page">
     <div class="main-con">
       404
     </div>

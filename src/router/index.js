@@ -23,15 +23,6 @@ const routes = [
 
 
 
-
-
-  {
-    path: '/share',
-    name: 'share',
-    component: () => import('@/pages/Share/index')
-  },
-
-
   /*其他*/
   {
     path: '/404',
@@ -50,6 +41,31 @@ const router = new VueRouter({
   mode:'history',
   routes
 })
+
+
+//全局路由守卫
+//白名单-登录注册等不需要登录也可以访问的页面
+// const whiteList = ['/login'];
+// router.beforeEach((to, from, next) => {
+//   if(isLogin) {
+//     //登录时
+//     if(to.path == '/login') {
+//       //登录且跳转登录时，重定向到主页
+//       next({path: '/'});
+//     } else {
+//       next();
+//     }
+//   } else {
+//     //没有登录时
+//     if (whiteList.indexOf(to.path) != -1) {
+//       //白名单
+//       next();
+//     } else {
+//       //不在白名单
+//       next('/login');
+//     }
+//   }
+// })
 
 
 
