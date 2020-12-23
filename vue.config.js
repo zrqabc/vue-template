@@ -4,6 +4,7 @@ function resolve(dir) {
 }
 module.exports = {
   publicPath: process.env.NODE_ENV=='development' ? '/' : '/2020jqcjd/',
+  assetsDir: 'static',
   productionSourceMap: false,
   chainWebpack: (config) => {
     config.resolve.alias
