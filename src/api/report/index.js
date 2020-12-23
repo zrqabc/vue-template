@@ -23,7 +23,7 @@ export function getReport(params) {//获取成绩单
 }
 export function getReportTop(params) {//获取榜单
   return request({
-    url: '/api/GetReportTop',
+    url: '/2020jqcjd/api/GetReportTop',
     method: 'get',
     params: params
   })
