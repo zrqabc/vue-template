@@ -3,7 +3,7 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 module.exports = {
-  publicPath: process.env.NODE_ENV=='development' ? '/' : '/2020jqcjd/',
+  publicPath: process.env.NODE_ENV=='development' ? '/' : '/',
   productionSourceMap: false,
   chainWebpack: (config) => {
     config.resolve.alias
