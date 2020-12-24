@@ -38,7 +38,7 @@ const routes = [
 
 const router = new VueRouter({
   base: process.env.NODE_ENV=='development' ? '/' : '/2020jqcjd/',
-  mode:'history',
+  mode: 'history',
   routes
 })
 
