@@ -50,7 +50,6 @@
 </script>
 
 <style scoped lang="scss">
-  @import "@/assets/css/variables.scss";
   .top-con{
     text-align: center;
     h1{

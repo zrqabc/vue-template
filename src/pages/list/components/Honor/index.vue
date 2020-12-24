@@ -111,7 +111,6 @@
 </script>
 
 <style scoped lang="scss">
-  @import "@/assets/css/variables.scss";
   .item-con{
     margin-bottom: 0.5rem;
     .title-con{

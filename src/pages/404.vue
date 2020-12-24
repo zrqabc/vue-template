@@ -22,7 +22,6 @@
 </script>
 
 <style scoped lang="scss">
-  @import "@/assets/css/variables.scss";
   .main-con{
     font-size: 1rem;
     text-align: center;

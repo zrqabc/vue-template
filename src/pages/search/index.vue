@@ -110,7 +110,6 @@
 </script>
 
 <style scoped lang="scss">
-  @import "@/assets/css/variables.scss";
   .search-con{
     padding: 10px 20px;
   }

@@ -126,7 +126,6 @@
 </script>
 
 <style scoped lang="scss">
-  @import "@/assets/css/variables.scss";
   .main-bg{
     height: 82vh;
   }

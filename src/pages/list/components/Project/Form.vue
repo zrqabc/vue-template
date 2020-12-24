@@ -122,7 +122,6 @@
 </script>
 
 <style scoped lang="scss">
-  @import "@/assets/css/variables.scss";
   .form{
     padding: 0.2rem;
     input[type=text]{

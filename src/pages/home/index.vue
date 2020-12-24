@@ -34,7 +34,6 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "@/assets/css/variables.scss";
   .title{
     position: relative;
     padding-top: 0.9rem;

@@ -31,7 +31,6 @@
 </script>
 
 <style scoped lang="scss">
-  @import "@/assets/css/variables.scss";
   .img-con{
     text-align: center;
     margin-top: 1.7rem;

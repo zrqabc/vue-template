@@ -122,7 +122,6 @@
 </script>
 
 <style scoped lang="scss">
-  @import "@/assets/css/variables.scss";
   .text-con{
     font-size: 0.28rem;
     text-align: center;

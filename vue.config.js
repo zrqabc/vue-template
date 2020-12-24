@@ -10,6 +10,13 @@ module.exports = {
     config.resolve.alias
       .set('@', resolve('./src'))
   },
+  css: {
+    loaderOptions: {
+      scss: {
+        additionalData: `@import "@/assets/css/variables.scss";`
+      },
+    }
+  },
   devServer: {
     host: '0.0.0.0',
     port: 8080, // 端口

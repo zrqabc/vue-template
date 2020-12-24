@@ -62,7 +62,6 @@
 </script>
 
 <style scoped lang="scss">
-  @import "@/assets/css/variables.scss";
   .share-con{
     .van-popup{
       background: none;
