@@ -5,7 +5,7 @@ import { filterParams } from "@/utils/tools.js";
 
 //实例axiosMas用于请求 http://apiappop.cbi360.net
 export const request = axios.create({
-  baseURL: process.env.NODE_ENV == 'development' ? '/api' : '/2020jqcjd/api',
+  baseURL: process.env.NODE_ENV == 'development' ? '/api' : '/api',
   headers: {
     // 'Content-Type': 'application/x-www-form-urlencoded',
   },
