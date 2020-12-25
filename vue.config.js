@@ -4,7 +4,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-  publicPath: process.env.NODE_ENV=='development' ? '/' : '2020jqcjd',
+  publicPath: process.env.NODE_ENV=='development' ? '/' : '/2020jqcjd/',
   assetsDir: 'static',
   outputDir: 'dist/2020jqcjd',
   productionSourceMap: false,
