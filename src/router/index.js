@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
+
 const routes = [
   {
     path: '/',//首页
@@ -37,7 +38,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  base: process.env.NODE_ENV=='development' ? '/' : '/2020jqcjd/',
+  base: process.env.NODE_ENV=='development' ? '/' : '2020jqcjd',
   mode: 'history',
   routes
 })

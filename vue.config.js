@@ -2,9 +2,11 @@ const path = require('path');
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
+
 module.exports = {
-  publicPath: process.env.NODE_ENV=='development' ? '/' : '/',
+  publicPath: process.env.NODE_ENV=='development' ? '/' : '2020jqcjd',
   assetsDir: 'static',
+  outputDir: 'dist/2020jqcjd',
   productionSourceMap: false,
   chainWebpack: (config) => {
     config.resolve.alias

@@ -2,28 +2,28 @@ import { request } from '@/service'
 
 export function getProvinceList(params) {//获取省份列表
   return request({
-    url: '/api/GetProvinceList',
+    url: '/GetProvinceList',
     method: 'get',
     params: params
   })
 }
 export function searchCompanyName(params) {//获取名字类似的企业
   return request({
-    url: '/api/SearchCompanyName',
+    url: '/SearchCompanyName',
     method: 'get',
     params: params
   })
 }
 export function getReport(params) {//获取成绩单
   return request({
-    url: '/api/GetReport',
+    url: '/GetReport',
     method: 'get',
     params: params
   })
 }
 export function getReportTop(params) {//获取榜单
   return request({
-    url: '/api/GetReportTop',
+    url: '/GetReportTop',
     method: 'get',
     params: params
   })
