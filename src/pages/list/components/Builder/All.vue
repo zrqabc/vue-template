@@ -95,8 +95,8 @@
           series: [
             {
               type: 'pie',
-              radius: '68%',
-              // center: ['50%', '42%'],
+              radius: '58%',
+              center: ['50%', '42%'],
               data: xdata,
               label:{
                 show: false,

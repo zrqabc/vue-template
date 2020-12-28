@@ -167,7 +167,7 @@
           height: 0.56rem;
         }
         p{
-          font-size: 0.26rem;
+          font-size: 0.2rem;
         }
       }
     }
