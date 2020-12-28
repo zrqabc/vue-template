@@ -140,13 +140,13 @@
   }
   .btn-con{
     text-align: center;
-    margin: 0.3rem 0;
+    margin: 0.2rem 0;
     .btn{
       width: 1.25rem;
       height: 0.5rem;
       display: inline-block;
       line-height: 0.5rem;
-      font-size: 0.14rem;
+      font-size: 0.28rem;
       text-align: center;
       border-radius: 0.5rem;
       background: linear-gradient(174deg, #004DC4 5%, #0660CD 96%);
@@ -160,7 +160,7 @@
     }
   }
   .list-con{
-    height: 7rem;
+    height: 74%;
     overflow: scroll;
     table{
       width: 100%;
@@ -216,7 +216,7 @@
   }
   .back-con{
     text-align: center;
-    margin-top: 0.22rem;
+    margin-top: 0.1rem;
     .btn{
       display: inline-block;
       width: 2.3rem;
