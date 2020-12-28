@@ -1,9 +1,11 @@
 import * as api from '@/api/other'
+import cookie from '@/utils/cookie.js'
 
 const state = {
   SMS: {},//发送验证码
   SMSIsVerify: {},//验证手机是否有效
   weChatShareData: {},//微信初始化数据
+  isShare: false,//是否分享
 }
 const mutations = {
   sendSMS(state, params) {
@@ -14,6 +16,9 @@ const mutations = {
   },
   getWeChatShareData(state, params) {
     state.weChatShareData = params;
+  },
+  getIsShare(state, params) {
+    state.isShare = params;
   },
 }
 const actions = {
@@ -37,6 +42,10 @@ const actions = {
       commit('getWeChatShareData', res.Result);
     }
     return res;
+  },
+  async getIsShare({commit}, params) {//获取是否分享
+    let result = cookie.getCookie('isShare') ? true : false;
+    commit('getIsShare', result);
   },
 }
 

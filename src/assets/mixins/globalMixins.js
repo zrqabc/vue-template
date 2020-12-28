@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import { mapState } from 'vuex'
 
 const mixin = {
   data() {
@@ -34,11 +35,10 @@ const mixin = {
       let result = this.$cookie.getCookie('isPermissions');
       return result ? true : false;
     },
-    //是否分享过
-    isShare() {
-      let result = this.$cookie.getCookie('isShare');
-      return result ? true : false;
-    }
+    ...mapState({
+      //是否分享过
+      isShare: (state) => { return state.other.isShare }
+    })
   },
   methods: {
 

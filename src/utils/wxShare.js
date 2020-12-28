@@ -5,6 +5,7 @@
  */
 import wx from 'weixin-js-sdk'
 import cookie from './cookie.js'
+import store from '@/store'
 
 /**
  * @param data 微信签名信息
@@ -48,6 +49,7 @@ export default function wxShare(data, option) {
         // 成功
         // cookie.setCookie('isShare','1',30);
         cookie.setCookie('isShare','1',new Date(2 * 60 * 1000));//测试2分钟
+        store.dispatch('other/getIsShare');
       },
       fail(res) {
         // 失败

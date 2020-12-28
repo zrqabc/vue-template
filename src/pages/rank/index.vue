@@ -62,11 +62,8 @@
 
 <script>
   import { mapState } from 'vuex'
-  import Share from './components/Share'
   export default{
-    components: {
-      Share
-    },
+    components: {},
     data(){
       return {
         btns: ['全国','省份'],

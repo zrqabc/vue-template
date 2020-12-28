@@ -26,6 +26,20 @@
   import { mapState } from 'vuex'
   import wxShare from '@/utils/wxShare.js'
   export default{
+    props: {
+      shareMsg: {
+        type: Object,
+        default: ()=> {
+          return {
+            title: '2020年建企成绩单来了，你的企业多少分？', // 分享标题
+            desc: '', // 分享描述
+            link: location.href, // 分享链接
+            imgUrl: 'https://img.cbi360.net/2020/12/28/18c6dcf3-35ca-4b3b-bd00-421277306c0f.png', // 分享图标
+          }
+        }
+      }
+
+    },
     components: {},
     data(){
       return {
@@ -34,7 +48,8 @@
     },
     created() {
       this.show = !this.isShare;
-      this.getWeChatShareData();
+      //获取微信初始化数据
+      this.getWeChatShareData(this.shareMsg);
     },
     computed: {
       ...mapState({
@@ -43,16 +58,10 @@
     },
     methods: {
       //获取微信初始化数据
-      async getWeChatShareData() {
+      async getWeChatShareData(option) {
         await this.$store.dispatch('other/getWeChatShareData',{
           url: location.href
         });
-        let option = {
-          title: '标题', // 分享标题
-          desc: '描述', // 分享描述
-          link: location.href, // 分享链接
-          imgUrl: 'https://img.cbi360.net/2020/12/22/a855a379-44e1-4985-aba3-e7520c364827.jpg', // 分享图标
-        }
         wxShare(this.weChatShareData,option);
       }
 
