@@ -1,22 +1,31 @@
 /**
  * 当前项目全局样式
  */
-
+html, body {
+  background-color: #000;
+  //width: 100vw;
+  //height: 100vh;
+}
 body {
-  //background-color: #f6f6f6;
+  position: relative;
   color: #fff;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://img.cbi360.net/2020/12/14/baef05ba-652e-4344-adf1-bdf5f8e579d2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 /*内容宽度*/
 .container {
   width: 1200px;
   margin: 0 auto;
 }
-.italic{
+.italic {
   font-style: italic;
 }
-.main-bg{
+.main-bg {
   width: 6.5rem;
-  background: linear-gradient(0deg, rgba(214,232,255, 0.5),rgba(194,225,253,0.9));
+  background: linear-gradient(0deg, rgba(214, 232, 255, 0.5), rgba(194, 225, 253, 0.9));
   margin: 0 auto;
   height: 76vh;
   box-shadow: 0px 7px 12px 0px #11113f;

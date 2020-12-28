@@ -7,11 +7,11 @@
     >
       <div class="form">
         <div class="form-item">
-          <input type="text" placeholder="请输入手机号领取成绩单" v-model="phone">
+          <input type="text" placeholder="请输入手机号领取成绩单" v-model="phone" @blur="onBlur">
           <div class="send" :class="{gray: isGray}" @click="send">{{sendText}}</div>
         </div>
         <div class="form-item">
-          <input type="text" placeholder="请输入验证码" v-model="verifyCode">
+          <input type="text" placeholder="请输入验证码" v-model="verifyCode" @blur="onBlur">
         </div>
         <div class="form-item">
           <div class="get" @click="clickReport">领取成绩单</div>
@@ -105,15 +105,21 @@
       //倒计时
       timeDown() {
         this.isGray = true;
-        this.sendText = 60;
+        let num = 60;
         let t = setInterval(() => {
-          this.sendText--;
-          if(this.sendText <= 0){
+          num--;
+          this.sendText = `${num} S`;
+          if(num <= 0){
             clearInterval(t);
             this.sendText = '发送验证码';
             this.isGray = false;
           }
         },1000)
+      },
+      //input失去焦点时
+      onBlur() {
+        //解决ios微信收起键盘时页面不归位的问题
+        document.querySelector('body').scrollTop = 0;
       }
 
     }
@@ -125,26 +131,27 @@
   .form{
     padding: 0.2rem;
     input[type=text]{
-      width: 3.8rem;
+      width: 3.6rem;
       height: 0.6rem;
       padding-left: 0.2rem;
       border-radius: 0.1rem;
       outline: none;
       color: #333;
-      margin-right: 0.2rem;
       font-size: 0.28rem;
       border: 1px solid $blue;
       border-radius: 0.6rem;
     }
     .form-item{
-      margin: 0.3rem 0.1rem;
+      margin: 0.3rem 0;
+      display: flex;
+      justify-content: space-between;
     }
     .send{
-      width: 1.8rem;
+      width: 1.6rem;
       height: 0.6rem;
       display: inline-block;
       line-height: 0.6rem;
-      font-size: 0.14rem;
+      font-size: 0.24rem;
       text-align: center;
       border-radius: 0.5rem;
       background: linear-gradient(174deg, #004DC4 5%, #0660CD 96%);
@@ -157,7 +164,7 @@
       width: 3rem;
       height: 0.6rem;
       line-height: 0.6rem;
-      font-size: 0.14rem;
+      font-size: 0.28rem;
       text-align: center;
       border-radius: 0.5rem;
       background: linear-gradient(174deg, #004DC4 5%, #0660CD 96%);

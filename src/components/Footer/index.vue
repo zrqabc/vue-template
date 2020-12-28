@@ -19,7 +19,7 @@
 
 <style scoped>
   .footer-con{
-    position: fixed;
+    position: absolute;
     bottom: 16px;
     width: 100vw;
     text-align: center;

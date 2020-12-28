@@ -52,6 +52,10 @@
       this.clearInput();
       this.onKeyup = this.$lodash.debounce(this.searchCompanyName,500);
     },
+    mounted() {
+      //解决ios微信收起键盘时页面不归位的问题
+      document.querySelector('body').scrollTop = 0;
+    },
     computed: {
       ...mapState({
         companyNameList: (state) => { return state.report.companyName }
