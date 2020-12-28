@@ -208,7 +208,7 @@
   .bottom-con{
     color: $blue;
     text-align: center;
-    margin-top: 0.8rem;
+    margin-top: 0.4rem;
     font-size: 0.3rem;
     font-weight: bold;
     p{

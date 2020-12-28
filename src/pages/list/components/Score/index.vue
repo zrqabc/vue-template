@@ -25,7 +25,7 @@
           <router-link to="/rank" class="look-btn italic">晒成绩</router-link>
         </div>
         <div class="right">
-          <img src="https://img.cbi360.net/2020/12/22/fc102740-73a1-49b1-adca-018515a067f2.png" alt="">
+          <img src="https://img.cbi360.net/2020/12/28/dd3c9c8a-bcc9-4c39-a6c7-c5c54a2b0f53.png" alt="">
           <p>生成我的成绩单</p>
         </div>
       </div>

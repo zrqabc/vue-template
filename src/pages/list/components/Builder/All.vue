@@ -184,7 +184,7 @@
       background: linear-gradient(0deg, #562f7882 5%, #312260a1 96%);
       box-shadow: 4px 0px 8px 1px rgba(52, 54, 165, 0.21);
       color: #fff;
-      font-size: 0.14rem;
+      font-size: 0.28rem;
     }
     li.active{
       background: $linear-gradient;

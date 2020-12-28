@@ -46,7 +46,8 @@ export default function wxShare(data, option) {
       imgUrl: option.imgUrl, // 分享图标
       success(res) {
         // 成功
-        cookie.setCookie('isShare','1',30);
+        // cookie.setCookie('isShare','1',30);
+        cookie.setCookie('isShare','1',new Date(2 * 60 * 1000));//测试2分钟
       },
       fail(res) {
         // 失败
