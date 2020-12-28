@@ -230,19 +230,20 @@
     }
   }
   .provice-con{
+    width: 320px;
     opacity: 0.9;
     display: flex;
     flex-wrap: wrap;
-    padding: 0.18rem;
+    padding: 10px;
     li{
       color: #fff;
       border: 1px solid #fff;
       font-size: 14px;
-      margin: 0.1rem 0.25rem;
+      margin: 5px 12px;
       border-radius: 3px;
-      width: 1rem;
+      width: 50px;
       text-align: center;
-      line-height: 0.6rem;
+      line-height: 30px;
     }
   }
   .van-dialog{
