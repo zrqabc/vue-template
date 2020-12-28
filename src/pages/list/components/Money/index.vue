@@ -4,7 +4,7 @@
       <div class="top-con">
         <h1 class="italic">2020年,您的中标总金额达</h1>
         <p class="text italic">
-          <!--<i>{{report.company.TenderMoneySum.toFixed(0)}}</i>万-->
+          <i>{{report.company.TenderMoneySum.toFixed(0)}}</i>万
         </p>
       </div>
       <div class="middle-con">
@@ -17,7 +17,7 @@
         <div class="item">
           <div class="title-con">金额为</div>
           <div class="text-con italic">
-            <!--<i>{{report.company.TenderMoneyMax.toFixed(0)}}</i>万-->
+            <i>{{report.company.TenderMoneyMax.toFixed(0)}}</i>万
           </div>
         </div>
         <div class="item">
