@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import store from '@/store'
 import { mapState } from 'vuex'
 import { shareMsg } from '@/config/index.js'
 import wxShare from '@/utils/wxShare.js'
@@ -12,7 +13,8 @@ const mixin = {
   created() {},
   mounted() {
     //获取是否分享
-    this.$store.dispatch('other/getIsShare');
+    // console.log(this.$store);
+    store.dispatch('other/getIsShare');
   },
   filters: {
     //时间日期过滤器
