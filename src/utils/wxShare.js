@@ -35,8 +35,7 @@ export default function wxShare(wxdata, friendCircle, friend, successCallback, f
       success(res) {
         // 成功
         alert('分享朋友圈-成功');
-        // cookie.setCookie('isShare','1',30);
-        cookie.setCookie('isShare','1',new Date(3 * 60 * 1000));//测试3分钟
+        cookie.setCookie('isShare','1',30);
         store.dispatch('other/getIsShare');//是否分享
         store.dispatch('other/getIsClickShare',false);//是否点击分享
       },
@@ -54,8 +53,7 @@ export default function wxShare(wxdata, friendCircle, friend, successCallback, f
       success(res) {
         // 成功
         alert('分享朋友-成功');
-        // cookie.setCookie('isShare','1',30);
-        cookie.setCookie('isShare','1',new Date(3 * 60 * 1000));//测试3分钟
+        cookie.setCookie('isShare','1',30);
         store.dispatch('other/getIsShare');//是否分享
         store.dispatch('other/getIsClickShare',false);//是否点击分享
       },
