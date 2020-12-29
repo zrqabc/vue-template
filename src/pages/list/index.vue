@@ -90,22 +90,17 @@
       //初始化分享
       initShare() {
         //是否分享过title
-        let desc = this.isShare ?
+        let text = this.isShare ?
           `2020建企成绩单来了，${this.report.company.CompanyName}得分${this.report.company.Score}，你的企业多少分？` :
           `我是${this.report.company.CompanyName}，这是我2020年的成绩单，总成绩是${this.report.company.Score}分！`;
         //获取微信初始化数据
         this.getWeChatShareData(
           {
-            title: '2020建企成绩单',
-            desc: desc,
-            link: this.shareMsg.link,
-            imgUrl: this.shareMsg.imgUrl
+            title: text
           },
           {
             title: '2020建企成绩单',
-            desc: desc,
-            link: this.shareMsg.link,
-            imgUrl: this.shareMsg.imgUrl
+            desc: text
           },
         );
       },

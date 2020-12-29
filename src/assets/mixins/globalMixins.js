@@ -1,19 +1,18 @@
 import Vue from 'vue';
 import store from '@/store'
 import { mapState } from 'vuex'
-import { shareMsg } from '@/config/index.js'
 import wxShare from '@/utils/wxShare.js'
+// import { shareMsg } from '@/config/index.js'
 
 const mixin = {
   data() {
     return {
-      shareMsg,//默认的分享信息
+      // shareMsg,//默认的分享信息
     }
   },
   created() {},
   mounted() {
     //获取是否分享
-    // console.log(this.$store);
     store.dispatch('other/getIsShare');
   },
   filters: {

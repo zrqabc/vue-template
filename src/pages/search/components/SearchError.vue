@@ -15,6 +15,7 @@
       <router-link to="/" class="btn-back italic">返回首页</router-link>
       <router-link to="/rank" class="btn-look italic">查看企业榜单</router-link>
     </div>
+    <div class="error-bg"></div>
   </div>
 </template>
 
@@ -68,6 +69,13 @@
       background: #015CCC;
       margin-top: 0.6rem;
     }
+  }
+  .error-bg{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://img.cbi360.net/2020/12/29/23489b9a-7077-4adc-8ed1-9c68445d8490.png');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
 
