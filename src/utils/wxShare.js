@@ -34,7 +34,7 @@ export default function wxShare(wxdata, friendCircle, friend, successCallback, f
       imgUrl: friendCircle.imgUrl, // 分享图标
       success(res) {
         // 成功
-        alert('分享朋友圈-成功');
+        // alert('分享朋友圈-成功');
         cookie.setCookie('isShare','1',30);
         store.dispatch('other/getIsShare');//是否分享
         store.dispatch('other/getIsClickShare',false);//是否点击分享
@@ -52,7 +52,7 @@ export default function wxShare(wxdata, friendCircle, friend, successCallback, f
       imgUrl: friend.imgUrl, // 分享图标
       success(res) {
         // 成功
-        alert('分享朋友-成功');
+        // alert('分享朋友-成功');
         cookie.setCookie('isShare','1',30);
         store.dispatch('other/getIsShare');//是否分享
         store.dispatch('other/getIsClickShare',false);//是否点击分享
