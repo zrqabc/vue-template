@@ -20,15 +20,15 @@ export default function wxShare(wxdata, friendCircle, friend, successCallback, f
     signature: wxdata.signature, // 必填，签名，见附录1
     jsApiList: [// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
       'checkJsApi',//判断当前客户端版本是否支持指定JS接口
-      'updateTimelineShareData',//“分享到朋友圈”及“分享到QQ空间”
-      'updateAppMessageShareData',//“分享给朋友”及“分享到QQ”
+      'onMenuShareTimeline',//“分享到朋友圈”及“分享到QQ空间”
+      'onMenuShareAppMessage',//“分享给朋友”及“分享到QQ”
     ]
   })
   wx.ready(function () {
     //config信息验证完成-成功、失败都会调用
     //config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
     //“分享到朋友圈”及“分享到QQ空间”
-    wx.updateTimelineShareData({
+    wx.onMenuShareTimeline({
       title: friendCircle.title, // 分享标题
       link: friendCircle.link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
       imgUrl: friendCircle.imgUrl, // 分享图标
@@ -46,7 +46,7 @@ export default function wxShare(wxdata, friendCircle, friend, successCallback, f
       }
     });
     //“分享给朋友”及“分享到QQ”
-    wx.updateAppMessageShareData({
+    wx.onMenuShareAppMessage({
       title: friend.title, // 分享标题
       desc: friend.desc, // 分享描述
       link: friend.link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
