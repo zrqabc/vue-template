@@ -21,8 +21,29 @@
     data(){
       return {}
     },
-    created() {},
+    created() {
+      //初始化分享
+      this.initShare();
+    },
     methods: {
+      //初始化分享
+      initShare() {
+        //获取微信初始化数据
+        this.getWeChatShareData(
+          {
+            title: '2020年建企成绩单来了，你的企业多少分？',
+            desc: '',
+            link: this.shareMsg.link,
+            imgUrl: this.shareMsg.imgUrl
+          },
+          {
+            title: '2020年建企成绩单来袭，你的成绩是？',
+            desc: '',
+            link: this.shareMsg.link,
+            imgUrl: this.shareMsg.imgUrl
+          },
+        );
+      },
       //点击input或者是领取按钮
       clickInput() {
         this.$router.push('/search');

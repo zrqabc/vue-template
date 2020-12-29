@@ -42,6 +42,8 @@
     </van-swipe>
     <!--验证码表单-->
     <Form></Form>
+    <!--分享提示页-->
+    <Share v-if="isClickShare"></Share>
   </div>
 </template>
 
@@ -72,16 +74,41 @@
     data(){
       return {}
     },
-    created() {
+    async created() {
       //获取成绩单
-      this.getReport();
+      await this.getReport();
+      //初始化分享
+      await this.initShare();
     },
     computed: {
       ...mapState({
-        report: (state) => { return state.report.report }
+        report: (state) => { return state.report.report },
+        isClickShare: (state) => { return state.other.isClickShare },//是否点击分享
       })
     },
     methods: {
+      //初始化分享
+      initShare() {
+        //是否分享过title
+        let title = this.isShare ?
+          `2020建企成绩单来了，${this.report.company.CompanyName}得分${this.report.company.Score}，你的企业多少分？` :
+          `我是${this.report.company.CompanyName}，这是我2020年的成绩单，总成绩是${this.report.company.Score}分！`;
+        //获取微信初始化数据
+        this.getWeChatShareData(
+          {
+            title: title,
+            desc: '',
+            link: this.shareMsg.link,
+            imgUrl: this.shareMsg.imgUrl
+          },
+          {
+            title: title,
+            desc: '',
+            link: this.shareMsg.link,
+            imgUrl: this.shareMsg.imgUrl
+          },
+        );
+      },
       //获取成绩单
       async getReport() {
         let res = await this.$store.dispatch('report/getReport',{

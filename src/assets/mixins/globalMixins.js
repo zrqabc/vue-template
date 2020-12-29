@@ -1,13 +1,19 @@
 import Vue from 'vue';
 import { mapState } from 'vuex'
+import { shareMsg } from '@/config/index.js'
+import wxShare from '@/utils/wxShare.js'
 
 const mixin = {
   data() {
     return {
-
+      shareMsg,//默认的分享信息
     }
   },
-  mounted() {},
+  created() {},
+  mounted() {
+    //获取是否分享
+    this.$store.dispatch('other/getIsShare');
+  },
   filters: {
     //时间日期过滤器
     dateFormat(val) {
@@ -30,17 +36,24 @@ const mixin = {
     },
   },
   computed: {
+    ...mapState({
+      isShare: (state) => { return state.other.isShare },//是否分享过
+      weChatShareData: (state) => { return state.other.weChatShareData },//微信初始化数据
+    }),
     //是否有权限
     isPermissions() {
       let result = this.$cookie.getCookie('isPermissions');
       return result ? true : false;
     },
-    ...mapState({
-      //是否分享过
-      isShare: (state) => { return state.other.isShare }
-    })
   },
   methods: {
+    //获取微信初始化数据
+    async getWeChatShareData(friendCircle,friend,successCallback,failCallback) {
+      await this.$store.dispatch('other/getWeChatShareData',{
+        url: location.href
+      });
+      await wxShare(this.weChatShareData,friendCircle,friend,successCallback,failCallback);
+    }
 
   }
 }

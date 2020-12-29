@@ -22,7 +22,7 @@
       <div class="bottom-con">
         <div class="left">
           <router-link to="/rank" class="look-btn italic">查看企业榜单</router-link>
-          <router-link to="/rank" class="look-btn italic">晒成绩</router-link>
+          <a class="look-btn italic" @click="clickShare">晒成绩</a>
         </div>
         <div class="right">
           <img src="https://img.cbi360.net/2020/12/28/dd3c9c8a-bcc9-4c39-a6c7-c5c54a2b0f53.png" alt="">
@@ -46,10 +46,14 @@
     created() {},
     computed: {
       ...mapState({
-        report: (state) => { return state.report.report }
+        report: (state) => { return state.report.report },
       }),
     },
     methods: {
+      //点击分享
+      clickShare() {
+        this.$store.dispatch('other/getIsClickShare',true);
+      }
 
     }
   }

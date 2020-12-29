@@ -24,46 +24,24 @@
 
 <script>
   import { mapState } from 'vuex'
-  import wxShare from '@/utils/wxShare.js'
   export default{
     props: {
-      shareMsg: {
-        type: Object,
-        default: ()=> {
-          return {
-            title: '2020年建企成绩单来了，你的企业多少分？', // 分享标题
-            desc: '', // 分享描述
-            link: location.href, // 分享链接
-            imgUrl: 'https://img.cbi360.net/2020/12/28/18c6dcf3-35ca-4b3b-bd00-421277306c0f.png', // 分享图标
-          }
-        }
-      }
 
     },
     components: {},
     data(){
       return {
-        show: false,
+        show: true,
       }
     },
-    created() {
-      this.show = !this.isShare;
-      //获取微信初始化数据
-      this.getWeChatShareData(this.shareMsg);
-    },
+    created() {},
     computed: {
       ...mapState({
-        weChatShareData: (state) => { return state.other.weChatShareData }
+
       })
     },
     methods: {
-      //获取微信初始化数据
-      async getWeChatShareData(option) {
-        await this.$store.dispatch('other/getWeChatShareData',{
-          url: location.href
-        });
-        wxShare(this.weChatShareData,option);
-      }
+
 
     }
   }

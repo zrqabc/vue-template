@@ -6,6 +6,7 @@ const state = {
   SMSIsVerify: {},//验证手机是否有效
   weChatShareData: {},//微信初始化数据
   isShare: false,//是否分享
+  isClickShare: false,//是否点击分享
 }
 const mutations = {
   sendSMS(state, params) {
@@ -19,6 +20,9 @@ const mutations = {
   },
   getIsShare(state, params) {
     state.isShare = params;
+  },
+  getIsClickShare(state, params) {
+    state.isClickShare = params;
   },
 }
 const actions = {
@@ -46,6 +50,9 @@ const actions = {
   async getIsShare({commit}, params) {//获取是否分享
     let result = cookie.getCookie('isShare') ? true : false;
     commit('getIsShare', result);
+  },
+  async getIsClickShare({commit}, params) {//是否点击分享
+    commit('getIsClickShare', params);
   },
 }
 
