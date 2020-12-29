@@ -8,27 +8,27 @@
       initial-swipe="0"
     >
       <!--中标业绩-->
-      <van-swipe-item>
+      <van-swipe-item v-if="report.company.TenderCount > 0">
         <Project></Project>
       </van-swipe-item>
       <!--金额-->
-      <van-swipe-item>
+      <van-swipe-item v-if="report.company.TenderMoneySum > 0">
         <Money></Money>
       </van-swipe-item>
       <!--业务范围-->
-      <van-swipe-item>
+      <van-swipe-item v-if="report.projectRanges.length > 0">
         <Area />
       </van-swipe-item>
       <!--资质-->
-      <van-swipe-item>
+      <van-swipe-item v-if="report.company.TechniqueCount > 0">
         <Qualification></Qualification>
       </van-swipe-item>
       <!--荣誉-->
-      <van-swipe-item>
+      <van-swipe-item v-if="(report.company.RedCompanyCount + report.company.RedBuilderCount + report.company.RedProjectCount) > 0">
         <Honor></Honor>
       </van-swipe-item>
       <!--建造师-->
-      <van-swipe-item>
+      <van-swipe-item v-if="(report.company.PeopleOneCount + report.company.PeopleTwoCount) > 0">
         <Builder></Builder>
       </van-swipe-item>
       <!--成绩对比-->
