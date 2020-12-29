@@ -18,6 +18,8 @@
 
 <style scoped lang="scss">
   .head-con {
+    position: relative;
+    z-index: 1;
     margin-bottom: 12px;
     img{
       width: 90px;

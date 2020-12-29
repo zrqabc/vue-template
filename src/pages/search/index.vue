@@ -134,6 +134,7 @@
   }
   .search-box {
     position: relative;
+    z-index: 1;
     .input-con{
       position: relative;
       display: inline-block;
