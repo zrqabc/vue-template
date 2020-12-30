@@ -161,7 +161,7 @@
       justify-content: space-evenly;
       .text-item{
         width: 1.4rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.24rem;
         .icon{
           width: 0.56rem;
           height: 0.56rem;
