@@ -5,7 +5,7 @@
       vertical
       :loop="false"
       :show-indicators="false"
-      initial-swipe="8"
+      initial-swipe="0"
     >
       <!--中标业绩-->
       <van-swipe-item v-if="report.company.TenderCount > 0">

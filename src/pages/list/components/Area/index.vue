@@ -61,54 +61,54 @@
       <!--所有-->
       <div class="all-con">
         <!--1个-->
-        <div class="item-con item-con2" v-if="report.projectRanges.length == 1">
+        <div class="item-con item-con2" v-if="allAreaDescending.length == 1">
           <div class="title-con italic">截止2020年</div>
           <div class="text-con italic">
             <div class="text-top">
               您的业务范围主要在
-              <span class="province">{{report.projectRanges[0].Province}}</span>
+              <span class="province">{{allAreaDescending[0].Province}}</span>
             </div>
           </div>
         </div>
         <!--2个-->
-        <div class="item-con item-con2" v-if="report.projectRanges.length == 2">
+        <div class="item-con item-con2" v-if="allAreaDescending.length == 2">
           <div class="title-con italic">截止2020年</div>
           <div class="text-con italic">
             <div class="text-top">您的业务范围主要在</div>
             <div class="text-top">
-              <span class="province">{{report.projectRanges[0].Province}}、{{report.projectRanges[1].Province}}</span>
+              <span class="province">{{allAreaDescending[0].Province}}、{{allAreaDescending[1].Province}}</span>
               <span class="num">2</span>
               <span>个</span>地区
             </div>
           </div>
         </div>
         <!--3个-->
-        <div class="item-con item-con2" v-if="report.projectRanges.length == 3">
+        <div class="item-con item-con2" v-if="allAreaDescending.length == 3">
           <div class="title-con italic">
             截止2020年
           </div>
           <div class="text-con italic">
             <div class="text-top">您的业务范围主要在</div>
             <div class="text-top">
-              <span class="province">{{report.projectRanges[0].Province}}、{{report.projectRanges[1].Province}}、{{report.projectRanges[2].Province}}</span>
+              <span class="province">{{allAreaDescending[0].Province}}、{{allAreaDescending[1].Province}}、{{allAreaDescending[2].Province}}</span>
               <span class="num">3</span>
               <span>个</span>地区
             </div>
           </div>
         </div>
         <!--3个以上-->
-        <div class="item-con item-con2" v-if="report.projectRanges.length > 3">
+        <div class="item-con item-con2" v-if="allAreaDescending.length > 3">
           <div class="title-con italic">
             截止2020年
           </div>
           <div class="text-con italic">
             <div class="text-top">您的业务范围已遍布全国</div>
             <div class="text-top">
-              <span class="province">{{report.projectRanges[0].Province}}、{{report.projectRanges[1].Province}}、{{report.projectRanges[2].Province}}</span>
+              <span class="province">{{allAreaDescending[0].Province}}、{{allAreaDescending[1].Province}}、{{allAreaDescending[2].Province}}</span>
               <span>等</span>
             </div>
             <div class="text-top">
-              <span class="num">{{report.projectRanges.length}}</span>
+              <span class="num">{{allAreaDescending.length}}</span>
               <span>个</span>地区
             </div>
           </div>
@@ -150,6 +150,12 @@
           return value.IsNew == 1;
         })
       },
+      //所有地区降序
+      allAreaDescending() {
+        let arr = JSON.parse(JSON.stringify(this.report.projectRanges));
+        let arr2 = arr.sort(objArrSort('TenderCount',false));
+        return arr2;
+      }
     },
     methods: {
       //图表
