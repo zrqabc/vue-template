@@ -13,6 +13,7 @@
             <p class="italic">
               您已打败了<span class="num">{{(report.company.Score * 1.0132/10).toFixed(0)}}%</span>建筑同行
             </p>
+            <img src="https://img.cbi360.net/2020/12/30/df60b3f6-4f66-46a4-a8c2-3ac4f1ee72b3.png" alt="" class="watermark">
           </div>
         </div>
         <div class="img-con">
@@ -61,6 +62,9 @@
 </script>
 
 <style scoped lang="scss">
+  .main-bg {
+    height: 80vh;
+  }
   .item-con{
     margin-bottom: 0.5rem;
     .title-con{
@@ -90,6 +94,7 @@
       .num-con{
         margin: 0.45rem 0;
         font-size: 0.28rem;
+        position: relative;
         p{
           color: $blue;
           font-weight: bold;
@@ -99,6 +104,12 @@
           color: $yellow;
           font-weight: bold;
           font-size: 0.48rem;
+        }
+        .watermark{
+          position: absolute;
+          width: 75%;
+          right: -21%;
+          top: -45%;
         }
       }
     }
@@ -110,7 +121,7 @@
       text-align: center;
       line-height: 0.84rem;
       font-size: 0.28rem;
-      margin-top: 0.5rem;
+      margin-top: 0.8rem;
     }
   }
   .bottom-con{
@@ -147,10 +158,11 @@
     }
   }
   .tip-con{
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
     font-size: 0.18rem;
     color: $blue;
-    text-align: right;
-    margin-top: 1.2rem;
   }
 
 

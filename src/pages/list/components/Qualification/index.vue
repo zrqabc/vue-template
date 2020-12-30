@@ -17,7 +17,7 @@
       </div>
       <!--只有总承包、都有-->
       <div class="item-con item-con2" v-if="report.company.TechniqueWholeCount">
-        <div class="title-con italic">总承包最高资质等级分别为</div>
+        <div class="title-con italic">总承包最高等级资质分别为</div>
         <div class="text-con italic">
           <div class="text-item" v-for="(item,index) in wholeArea" :key="index">
             <img :src="item.src" alt="" class="icon">

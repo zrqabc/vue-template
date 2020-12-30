@@ -86,6 +86,7 @@
     .text-con{
       color: $blue;
       font-weight: bold;
+      font-size: 0.32rem;
       i{
         font-size: 0.32rem;
         font-weight: bold;

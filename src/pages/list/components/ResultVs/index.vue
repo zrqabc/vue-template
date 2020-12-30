@@ -49,13 +49,13 @@
         let xdata = ['中标量/个','中标总额/W','荣誉/项','业务范围/个省'];
         let sdata1 = [
           this.report.history.TenderCount,
-          this.report.history.TenderMoney,
+          Math.round(this.report.history.TenderMoney),
           this.report.history.RedCount,
           this.report.history.BusinessRangeCount
         ];
         let sdata2 = [
           this.report.company.TenderCount,
-          this.report.company.TenderMoneySum,
+          Math.round(this.report.company.TenderMoneySum),
           this.report.company.RedCompanyCount + this.report.company.RedBuilderCount + this.report.company.RedProjectCount,
           this.report.projectRanges.length
         ];
@@ -149,8 +149,8 @@
               data: sdata1,
               label: {
                 show: true,
-                position: 'top',
-                // color: '#ABCBFF'
+                position: 'insideTopRight',
+                // color: '#295EC6'
               },
               itemStyle: {
                 color: '#295EC6'
@@ -214,6 +214,7 @@
     p{
       margin-top: 0.2rem;
       font-weight: bold;
+      color: $blue;
     }
     span{
       font-size: 0.48rem;

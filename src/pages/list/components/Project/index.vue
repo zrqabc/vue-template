@@ -71,7 +71,7 @@
     }
     .text {
       color: $blue;
-      font-size: 0.28rem;
+      font-size: 0.32rem;
       font-weight: bold;
       margin-top: 0.4rem;
     }
