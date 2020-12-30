@@ -25,7 +25,8 @@ export default function wxShare(wxdata, friendCircle, friend, successCallback, f
       'checkJsApi',//判断当前客户端版本是否支持指定JS接口
       'onMenuShareTimeline',//分享到朋友圈
       'onMenuShareAppMessage',//分享给朋友
-    ]
+    ],
+    openTagList: ['wx-open-launch-weapp'] // 可选，需要使用的开放标签列表，例如['wx-open-launch-app']
   })
   wx.ready(function () {
     //config信息验证完成-成功、失败都会调用

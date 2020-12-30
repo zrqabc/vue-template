@@ -80,6 +80,10 @@
       //初始化分享
       await this.initShare();
     },
+    mounted() {
+      //初始化点击分享
+      this.$store.dispatch('other/getIsClickShare',false);
+    },
     computed: {
       ...mapState({
         report: (state) => { return state.report.report },

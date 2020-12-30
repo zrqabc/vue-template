@@ -2,7 +2,9 @@
   <div class="main-con">
     <div class="main-bg">
       <div class="item-con">
-        <div class="title-con italic">2020年</div>
+        <div class="title-con italic">
+          <div class="title-con-bg">2020年</div>
+        </div>
         <div class="text-con italic">
           <div class="text-item">
             您荣获了<span class="num"> {{report.company.RedCompanyCount}} </span>项企业荣誉
@@ -31,7 +33,9 @@
             v-for="(item,index) in redProjectCountry"
             :key="index"
           >
-            {{item.AwardName}}
+            <div class="title-con-bg">
+              {{item.AwardName}}
+            </div>
           </div>
         </div>
         <div class="list">
@@ -51,7 +55,9 @@
             v-for="(item,index) in redProjectCountry"
             :key="index"
           >
-            {{item.AwardName}}
+            <div class="title-con-bg">
+              {{item.AwardName}}
+            </div>
           </div>
         </div>
         <div class="list">
@@ -116,13 +122,39 @@
     .title-con{
       text-align: center;
       margin-bottom: 0.3rem;
-      background-image: url("https://img.cbi360.net/2020/12/15/67b2c248-ea5e-4467-b9bf-4c7659207066.png");
-      background-repeat: no-repeat;
-      background-size: 2.92rem 0.6rem;
-      background-position: center;
       font-size: 0.28rem;
-      height: 0.6rem;
-      line-height: 0.6rem;
+      height: 30px;
+      line-height: 30px;
+      .title-con-bg{
+        display: inline-block;
+        background-color: $blue;
+        padding: 0px 13px;
+        position: relative;
+      }
+      .title-con-bg:before{
+        position: absolute;
+        content: '';
+        width: 11px;
+        height: 30px;
+        display: inline-block;
+        background-image: url("https://img.cbi360.net/2020/12/30/67835e39-aacf-4937-827a-c40306bde155.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        top: 0;
+        left: -10px;
+      }
+      .title-con-bg:after{
+        position: absolute;
+        content: '';
+        width: 11px;
+        height: 30px;
+        display: inline-block;
+        background-image: url("https://img.cbi360.net/2020/12/30/4445405a-83c8-4d9a-bf45-7019cf4507c7.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        top: 0;
+        right: -10px;
+      }
     }
     .text-con{
       font-weight: bold;
