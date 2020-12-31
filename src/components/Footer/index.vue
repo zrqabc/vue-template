@@ -5,7 +5,7 @@
       username="gh_3a4e33c5ebb6"
     >
       <script type="text/wxtag-template">
-        建设通出品
+        <a>建设通出品</a>
       </script>
     </wx-open-launch-weapp>
     <a>数据截止日期：2020.12.15</a>
