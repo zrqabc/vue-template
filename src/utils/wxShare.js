@@ -71,6 +71,7 @@ export default function wxShare(wxdata, friendCircle, friend, successCallback, f
         store.dispatch('other/getIsClickShare',false);//是否点击分享
         if(successCallback == 'rank') {
           //发送记录
+          alert('发送记录')
           store.dispatch('record/sendRecord',{
             clickType: 2,
             phone: cookie.getCookie('isPermissions')
