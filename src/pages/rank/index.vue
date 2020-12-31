@@ -104,10 +104,10 @@
       successCallback() {
         alert('分享成功回调')
         //发送记录
-        this.$store.dispatch('record/sendRecord',{
-          clickType: 2,
-          phone: this.$cookie.getCookie('isPermissions')
-        });
+        // this.$store.dispatch('record/sendRecord',{
+        //   clickType: 2,
+        //   phone: this.$cookie.getCookie('isPermissions')
+        // });
       },
       //点击tab
       clickBtn(index) {
