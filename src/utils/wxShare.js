@@ -59,7 +59,7 @@ export default function wxShare(wxdata, friendCircle, friend, successCallback, f
       dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
       success(res) {
         // 成功
-        // alert('分享朋友-成功');
+        alert('分享朋友-成功');
         cookie.setCookie('isShare','1',30);//存储cookie
         store.dispatch('other/getIsShare');//是否分享
         store.dispatch('other/getIsClickShare',false);//是否点击分享
