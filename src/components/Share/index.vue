@@ -7,12 +7,8 @@
     >
       <div class="con">
         <img class="guide-img" src="https://img.cbi360.net/2020/12/17/eb58e46a-e25a-428c-a33f-c5a81e91b42c.png" alt="">
-        <div class="text">
-          恭候您多时了<br>
-          查看企业榜单<br>
-          只需动动小指头<br>
-          告知您的好友圈<br>
-          立即<span>解锁</span>权限查看
+        <div class="text" v-html="text">
+
         </div>
         <div class="back-con">
           <router-link to="/" class="btn italic">返回首页</router-link>
@@ -26,7 +22,15 @@
   import { mapState } from 'vuex'
   export default{
     props: {
-
+      text: {
+        type: String,
+        default: `
+          恭候您多时了<br>
+          查看企业榜单<br>
+          只需动动小指头<br>
+          告知您的好友圈<br>
+          立即<span style="font-size: 0.48rem;color: #FFFB07;font-weight: bold;">解锁</span>权限查看`
+      }
     },
     components: {},
     data(){

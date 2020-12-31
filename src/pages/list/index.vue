@@ -43,7 +43,7 @@
     <!--验证码表单-->
     <Form></Form>
     <!--分享提示页-->
-    <Share v-if="isClickShare"></Share>
+    <Share v-if="isClickShare" :text="shareText"></Share>
   </div>
 </template>
 
@@ -72,7 +72,14 @@
       Form
     },
     data(){
-      return {}
+      return {
+        shareText: `
+          晒出好成绩<br>
+          秀出硬实力<br>
+          告知您的好友圈<br>
+          晒出不一样的年度战果<br>
+        `,
+      }
     },
     async created() {
       //获取成绩单
