@@ -50,7 +50,7 @@ const mixin = {
   methods: {
     //获取微信初始化数据
     async getWeChatShareData(friendCircle,friend,successCallback,failCallback) {
-      successCallback ? successCallback() : '';//执行回调
+      console.log(successCallback);
       await this.$store.dispatch('other/getWeChatShareData',{
         url: location.href
       });
