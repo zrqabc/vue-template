@@ -49,6 +49,7 @@
         v-model="show"
         :show-confirm-button="false"
         :close-on-click-overlay="false"
+        :lazy-render="false"
       >
         <ul class="provice-con">
           <li v-for="(item,index) in provinceList" :key="index" @click="clickProvince(item.ProvinceID,item.Province)">{{item.ShortName}}</li>
@@ -182,10 +183,10 @@
       border: 1px solid #0660CD;
       tr{
         color: #0660CD;
-        font-size: 0.18rem;
+        font-size: 0.24rem;
       }
       th{
-        font-size: 0.18rem;
+        font-size: 0.24rem;
         color: #fff;
         background: #0660CD;
         border: 1px solid #3f86dc;

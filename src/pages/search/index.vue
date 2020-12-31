@@ -134,7 +134,7 @@
   }
   .search-box {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     .input-con{
       position: relative;
       display: inline-block;
@@ -158,6 +158,7 @@
         top: 0;
         font-size: 0.32rem;
         padding: 0.12rem 0.24rem;
+        font-family: 宋体;
       }
     }
     .btn {
