@@ -7,6 +7,21 @@ import wx from 'weixin-js-sdk'
 import cookie from './cookie.js'
 import store from '@/store'
 
+
+//分享成功回调
+function successCallback(mark) {
+  cookie.setCookie('isShare','1',30);//存储cookie
+  store.dispatch('other/getIsShare');//是否分享
+  store.dispatch('other/getIsClickShare',false);//是否点击分享
+  //排名页面分享后发送记录
+  if(mark == 'rank') {
+    store.dispatch('record/sendRecord',{
+      clickType: 2,
+      phone: cookie.getCookie('isPermissions')
+    });
+  }
+}
+
 /**
  * @param wxdata 微信签名信息
  * @param friendCircle 分享朋友圈信息
@@ -14,7 +29,7 @@ import store from '@/store'
  * @param successCallback 分享成功回调
  * @param failCallback 分享失败回调
  */
-export default function wxShare(wxdata, friendCircle, friend, successCallback, failCallback) {
+export default function wxShare(wxdata, friendCircle, friend, mark) {
   wx.config({
     debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
     appId: wxdata.appId, // 必填，公众号的唯一标识
@@ -38,17 +53,9 @@ export default function wxShare(wxdata, friendCircle, friend, successCallback, f
       imgUrl: 'https://img.cbi360.net/2020/12/28/18c6dcf3-35ca-4b3b-bd00-421277306c0f.png', // 分享图标
       success(res) {
         // 成功
-        alert('分享朋友圈-成功');
-        cookie.setCookie('isShare','1',30);//存储cookie
-        store.dispatch('other/getIsShare');//是否分享
-        store.dispatch('other/getIsClickShare',false);//是否点击分享
-        if(successCallback == 'rank') {
-          //发送记录
-          store.dispatch('record/sendRecord',{
-            clickType: 2,
-            phone: cookie.getCookie('isPermissions')
-          });
-        }
+        // alert('分享朋友圈-成功');
+        //分享成功回调
+        successCallback(mark);
       },
       fail(res) {
         // 失败
@@ -65,18 +72,9 @@ export default function wxShare(wxdata, friendCircle, friend, successCallback, f
       dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
       success(res) {
         // 成功
-        alert('分享朋友-成功');
-        cookie.setCookie('isShare','1',30);//存储cookie
-        store.dispatch('other/getIsShare');//是否分享
-        store.dispatch('other/getIsClickShare',false);//是否点击分享
-        if(successCallback == 'rank') {
-          //发送记录
-          alert('发送记录')
-          store.dispatch('record/sendRecord',{
-            clickType: 2,
-            phone: cookie.getCookie('isPermissions')
-          });
-        }
+        // alert('分享朋友-成功');
+        //分享成功回调
+        successCallback(mark);
       },
       fail(res) {
         // 失败

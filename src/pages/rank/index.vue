@@ -100,15 +100,6 @@
           'rank'
         );
       },
-      //分享成功回调
-      // successCallback() {
-      //   alert('发送记录1')
-        // //发送记录
-        // store.dispatch('record/sendRecord',{
-        //   clickType: 2,
-        //   phone: cookie.getCookie('isPermissions')
-        // });
-      // },
       //点击tab
       clickBtn(index) {
         this.activeIndex = index;

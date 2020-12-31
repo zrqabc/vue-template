@@ -49,12 +49,11 @@ const mixin = {
   },
   methods: {
     //获取微信初始化数据
-    async getWeChatShareData(friendCircle,friend,successCallback,failCallback) {
-      console.log(successCallback);
+    async getWeChatShareData(friendCircle,friend,mark) {
       await this.$store.dispatch('other/getWeChatShareData',{
         url: location.href
       });
-      await wxShare(this.weChatShareData,friendCircle,friend,successCallback,failCallback);
+      await wxShare(this.weChatShareData,friendCircle,friend,mark);
     }
 
   }
