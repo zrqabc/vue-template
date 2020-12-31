@@ -34,14 +34,15 @@ export default function wxShare(wxdata, friendCircle, friend, successCallback, f
     //分享到朋友圈
     wx.onMenuShareTimeline({
       title: friendCircle.title, // 分享标题
-      link: 'http://h5.cbi360.net/2020jqcjd/?from=Timeline', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+      link: 'http://h5.cbi360.net/2020jqcjd/?referrer=Timeline', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
       imgUrl: 'https://img.cbi360.net/2020/12/28/18c6dcf3-35ca-4b3b-bd00-421277306c0f.png', // 分享图标
       success(res) {
         // 成功
         // alert('分享朋友圈-成功');
-        cookie.setCookie('isShare','1',30);
+        cookie.setCookie('isShare','1',30);//存储cookie
         store.dispatch('other/getIsShare');//是否分享
         store.dispatch('other/getIsClickShare',false);//是否点击分享
+        successCallback ? successCallback() : '';//执行回调
       },
       fail(res) {
         // 失败
@@ -52,16 +53,17 @@ export default function wxShare(wxdata, friendCircle, friend, successCallback, f
     wx.onMenuShareAppMessage({
       title: friend.title, // 分享标题
       desc: friend.desc, // 分享描述
-      link: 'http://h5.cbi360.net/2020jqcjd/?from=AppMessage', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+      link: 'http://h5.cbi360.net/2020jqcjd/?referrer=AppMessage', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
       imgUrl: 'https://img.cbi360.net/2020/12/28/18c6dcf3-35ca-4b3b-bd00-421277306c0f.png', // 分享图标
       type: '', // 分享类型,music、video或link，不填默认为link
       dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
       success(res) {
         // 成功
         // alert('分享朋友-成功');
-        cookie.setCookie('isShare','1',30);
+        cookie.setCookie('isShare','1',30);//存储cookie
         store.dispatch('other/getIsShare');//是否分享
         store.dispatch('other/getIsClickShare',false);//是否点击分享
+        successCallback ? successCallback() : '';//执行回调
       },
       fail(res) {
         // 失败

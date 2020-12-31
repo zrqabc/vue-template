@@ -98,7 +98,8 @@
       async clickSearch() {
         if(this.companyName){
           let res = await this.$store.dispatch('report/getReport',{
-            companyName: this.companyName
+            companyName: this.companyName,
+            phone: this.$cookie.getCookie('isPermissions')
           });
           if(res.Code == 200 && res.Result) {
             this.$router.push({

@@ -161,7 +161,8 @@
       //图表
       async area() {
         await this.$store.dispatch('report/getReport',{
-          companyName: this.$route.query.companyName
+          companyName: this.$route.query.companyName,
+          phone: this.$cookie.getCookie('isPermissions')
         });
         let xdata = this.chartData();
         let myChart = this.$echarts.init(document.getElementById('area'));

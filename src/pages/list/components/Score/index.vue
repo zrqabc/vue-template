@@ -26,7 +26,7 @@
           <a class="look-btn italic" @click="clickShare">晒成绩</a>
         </div>
         <div class="right">
-          <img src="https://img.cbi360.net/2020/12/28/dd3c9c8a-bcc9-4c39-a6c7-c5c54a2b0f53.png" alt="">
+          <img src="https://static.dingtalk.com/media/lALPD2eDOTN-DXLNAQDNAQA_256_256.png_720x720g.jpg?bizType=im" alt="">
           <p>生成我的成绩单</p>
         </div>
       </div>
@@ -64,6 +64,11 @@
       //点击分享
       clickShare() {
         this.$store.dispatch('other/getIsClickShare',true);
+        //发送记录
+        this.$store.dispatch('record/sendRecord',{
+          clickType: 1,
+          phone: this.$cookie.getCookie('isPermissions')
+        });
       }
 
     }

@@ -44,7 +44,8 @@
       //图表
       async resultvs() {
         await this.$store.dispatch('report/getReport',{
-          companyName: this.$route.query.companyName
+          companyName: this.$route.query.companyName,
+          phone: this.$cookie.getCookie('isPermissions')
         });
         let xdata = ['中标量/个','中标总额/W','荣誉/项','业务范围/个省'];
         let sdata1 = [

@@ -73,12 +73,7 @@
     },
     data(){
       return {
-        shareText: `
-          晒出好成绩<br>
-          秀出硬实力<br>
-          告知您的好友圈<br>
-          晒出不一样的年度战果<br>
-        `,
+        shareText: `晒出好成绩<br>秀出硬实力<br>告知您的好友圈<br>晒出不一样的年度战果<br>`,
       }
     },
     async created() {
@@ -118,7 +113,8 @@
       //获取成绩单
       async getReport() {
         let res = await this.$store.dispatch('report/getReport',{
-          companyName: this.$route.query.companyName
+          companyName: this.$route.query.companyName,
+          phone: this.$cookie.getCookie('isPermissions')
         });
         if(res.Code != 200){
           this.$router.push('/404');

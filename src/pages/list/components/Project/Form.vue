@@ -68,7 +68,7 @@
           })
           if(res.Code == 200){
             //成功
-            this.$cookie.setCookie('isPermissions','1',30);
+            this.$cookie.setCookie('isPermissions',this.phone,30);
             this.show = false;
           }else{
             this.$toast(res.Msg);

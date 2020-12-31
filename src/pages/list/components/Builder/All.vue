@@ -36,7 +36,8 @@
     created() {},
     async mounted() {
       await this.$store.dispatch('report/getReport',{
-        companyName: this.$route.query.companyName
+        companyName: this.$route.query.companyName,
+        phone: this.$cookie.getCookie('isPermissions')
       });
       this.peopleChart(this.oneArr);
     },
