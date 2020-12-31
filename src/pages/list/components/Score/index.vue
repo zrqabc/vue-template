@@ -17,7 +17,7 @@
           </div>
         </div>
         <div class="img-con">
-          建筑业的跨域强者，人生就要不停奋斗
+          {{evaluateResult}}
         </div>
       </div>
       <div class="bottom-con">
@@ -41,7 +41,12 @@
     components: {},
     data(){
       return {
-
+        evaluateList: [//顺序：荣誉，业务范围，中标，资质
+          ['奋进新时代 建功新征程', '再创佳绩，载誉而行', '摘冠折桂，业界荣耀'],
+          ['扎根本地市场，精耕细作创品牌', '投标路上，你的潜力比你想象更给力', '建筑业的跨域强者，人生就要不停奋斗'],
+          ['建筑界小萌新，C位出道', '长江后浪推前浪，后起之秀代代强', '我也想低调，可实力不允许','建筑业的老司机  哪有项目哪有我','行业投标大佬，疯狂打call','建筑业的扛把子，奥利给','无敌是多么的寂寞，真香啊'],
+          ['同样九年义务教育，为何你一枝独秀', '行业领军之辈，优秀建企楷模', '改革创新一条街，打听打听谁领先','确认过眼神，绝对硬实力','专有所长 业有所精','你的专业，我放心','道路千万条，专业第一条'],
+        ]
       }
     },
     created() {},
@@ -49,6 +54,11 @@
       ...mapState({
         report: (state) => { return state.report.report },
       }),
+      evaluateResult() {
+        return this.report.evaluate ?
+          this.evaluateList[this.report.evaluate.Key][this.report.evaluate.Value] :
+          '建筑业的跨域强者，人生就要不停奋斗';
+      }
     },
     methods: {
       //点击分享
