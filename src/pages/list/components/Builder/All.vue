@@ -136,7 +136,7 @@
           },
           {
             value: otherPeopleCount,
-            name: '其他'
+            name: otherPeopleCount ? '其他' : ''
           },
         ]
       }

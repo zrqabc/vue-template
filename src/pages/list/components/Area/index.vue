@@ -220,7 +220,7 @@
           },
           {
             value: otherTenderCount,
-            name: '其他'
+            name: otherTenderCount ? '其他' : ''
           },
         ]
       }
