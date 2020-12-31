@@ -49,7 +49,6 @@
         v-model="show"
         :show-confirm-button="false"
         :close-on-click-overlay="false"
-        :lazy-render="false"
       >
         <ul class="provice-con">
           <li v-for="(item,index) in provinceList" :key="index" @click="clickProvince(item.ProvinceID,item.Province)">{{item.ShortName}}</li>
