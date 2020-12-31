@@ -97,7 +97,7 @@
             title: '2020年建企成绩单来袭，你的成绩是？',
             desc: ''
           },
-          'rank'
+          this.successCallback
         );
       },
       //分享成功回调
