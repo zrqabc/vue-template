@@ -97,17 +97,17 @@
             title: '2020年建企成绩单来袭，你的成绩是？',
             desc: ''
           },
-          this.successCallback
+          'rank'
         );
       },
       //分享成功回调
       successCallback() {
-        alert('发送记录')
-        //发送记录
-        this.$store.dispatch('record/sendRecord',{
-          clickType: 2,
-          phone: this.$cookie.getCookie('isPermissions')
-        });
+        alert('发送记录1')
+        // //发送记录
+        // store.dispatch('record/sendRecord',{
+        //   clickType: 2,
+        //   phone: cookie.getCookie('isPermissions')
+        // });
       },
       //点击tab
       clickBtn(index) {
