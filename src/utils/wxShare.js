@@ -38,7 +38,7 @@ export default function wxShare(wxdata, friendCircle, friend, successCallback, f
       imgUrl: 'https://img.cbi360.net/2020/12/28/18c6dcf3-35ca-4b3b-bd00-421277306c0f.png', // 分享图标
       success(res) {
         // 成功
-        // alert('分享朋友圈-成功');
+        alert('分享朋友圈-成功');
         cookie.setCookie('isShare','1',30);//存储cookie
         store.dispatch('other/getIsShare');//是否分享
         store.dispatch('other/getIsClickShare',false);//是否点击分享
