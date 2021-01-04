@@ -4,7 +4,12 @@
       <div class="top-con">
         <h1 class="italic">2020年,您的中标总金额达</h1>
         <p class="text italic">
-          <i>{{report.company.TenderMoneySum ? report.company.TenderMoneySum.toFixed(0) : ''}}</i>万
+          <span v-if="report.company.TenderMoneySum < 10000">
+            <i>{{report.company.TenderMoneySum.toFixed(0)}}</i>万
+          </span>
+          <span v-else>
+            <i>{{(report.company.TenderMoneySum/10000).toFixed(0)}}</i>亿
+          </span>
         </p>
       </div>
       <div class="middle-con">

@@ -1,6 +1,6 @@
 
 /**
- * 
+ * 请求接口时过滤参数
  * @param {*} params 参数 对象格式
  */
 export function filterParams(params = {}) {
@@ -17,31 +17,8 @@ export function filterParams(params = {}) {
 }
 
 /**
- *
- * @param {*} cookie参数字符串
- * 返回值是如果 不存在cookieString 返回null
- */
-export function parseCookie(cookieString = '') {
-  if (cookieString == '' || !cookieString) {
-    return null;
-  }
-  let str = cookieString;
-  let dataArray = str.split('&');
-  let params = {};
-  for (let i = 0; i < dataArray.length; i++) {
-    let item = dataArray[i].split('=');
-    let key = decodeURIComponent(item[0]);
-    let val = decodeURIComponent(item[1]);
-    if (key) {
-      params[key] = val;
-    }
-
-  }
-  return params;
-}
-
-/**
  * 数组对象根据属性值排序
+ * 用法  arr.sort(objArrSort('PeopleCount',false))
  * @param property 属性名
  * @param desc true=升序 false=降序 默认升序
  */
@@ -60,7 +37,7 @@ export function objArrSort(property,desc=true) {
 }
 
 /**
- * 
+ * 数组转换成树结构
  * @param {*} source  数组
  * @param {*} id 每一项的id
  * @param {*} parentId 父亲的id
@@ -121,6 +98,29 @@ export function reverseParent(id, dataArr) {
   return result;
 }
 
+/**
+ *
+ * @param {*} cookie参数字符串
+ * 返回值是如果 不存在cookieString 返回null
+ */
+export function parseCookie(cookieString = '') {
+  if (cookieString == '' || !cookieString) {
+    return null;
+  }
+  let str = cookieString;
+  let dataArray = str.split('&');
+  let params = {};
+  for (let i = 0; i < dataArray.length; i++) {
+    let item = dataArray[i].split('=');
+    let key = decodeURIComponent(item[0]);
+    let val = decodeURIComponent(item[1]);
+    if (key) {
+      params[key] = val;
+    }
+
+  }
+  return params;
+}
 
 /**
  * 防抖函数用于输入框不能频繁触发 fn回调 delay 500
