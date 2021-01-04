@@ -9,10 +9,10 @@
           <div class="text-item">
             您荣获了<span class="num"> {{report.company.RedCompanyCount}} </span>项企业荣誉
           </div>
-          <div class="text-item">
+          <div class="text-item" v-if="report.company.RedBuilderCount > 0">
             <span class="num"> {{report.company.RedBuilderCount}} </span>项建造师荣誉
           </div>
-          <div class="text-item" v-if="report.company.RedProjectCount">
+          <div class="text-item" v-if="report.company.RedProjectCount > 0">
             <span class="num"> {{report.company.RedProjectCount}} </span>项工程荣誉
           </div>
         </div>
