@@ -189,10 +189,8 @@
 
 <style scoped lang="scss">
   .item-con{
-    margin-bottom: 0.1rem;
     .title-con{
       text-align: center;
-      margin-bottom: 0.3rem;
       background-image: url("https://img.cbi360.net/2020/12/15/67b2c248-ea5e-4467-b9bf-4c7659207066.png");
       background-repeat: no-repeat;
       background-size: 3.72rem 0.6rem;
@@ -218,7 +216,7 @@
     font-size: 0.3rem;
     font-weight: bold;
     p{
-      margin-top: 0.2rem;
+      margin-top: 0.1rem;
       font-weight: bold;
       color: $blue;
     }

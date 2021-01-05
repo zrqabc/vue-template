@@ -279,7 +279,7 @@
   .chart-con{
     #area{
       width: 100%;
-      height: 3.32rem;
+      height: 3rem;
     }
 
   }

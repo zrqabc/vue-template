@@ -191,7 +191,7 @@
   }
   .img-con{
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     img{
       width: 3.38rem;
     }

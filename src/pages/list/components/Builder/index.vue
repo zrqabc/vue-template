@@ -47,7 +47,7 @@
 
 <style scoped lang="scss">
   .item-con{
-    margin-bottom: 0.54rem;
+    margin-bottom: 0.2rem;
     .title-con{
       text-align: center;
       margin-bottom: 0.3rem;
