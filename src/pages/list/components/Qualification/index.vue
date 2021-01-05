@@ -17,7 +17,7 @@
       </div>
       <!--只有总承包、都有-->
       <div class="item-con item-con2" v-if="report.company.TechniqueWholeCount">
-        <div class="title-con italic">总承包最高等级资质分别为</div>
+        <div class="title-con italic">总承包资质分别为</div>
         <div class="text-con italic">
           <div class="text-item" v-for="(item,index) in wholeArea" :key="index">
             <img :src="item.src" alt="" class="icon">
@@ -37,6 +37,7 @@
 
 <script>
   import { mapState } from 'vuex'
+  import { objArrSort } from '@/utils/tools.js'
   export default{
     components: {},
     data(){
@@ -100,17 +101,20 @@
       }),
       //总承包
       wholeArea() {
+        //过滤总承包
         let arr = this.report.techniques.filter((value,key) => {
           return value.ParentID == 1;
         })
-        arr.map((val1,key1) => {
+        //升序
+        let arr2 = arr.sort(objArrSort('Grade',true));
+        arr2.map((val1,key1) => {
           this.iconList.map((val2,key2) => {
             if(val1.CategoryID == val2.id){
               val1.src = val2.src;
             }
           })
         })
-        return arr;
+        return arr2;
       },
     },
     methods: {
@@ -152,8 +156,8 @@
   }
   .item-con2{
     .title-con{
-      background-image: url("https://img.cbi360.net/2020/12/15/b164c98e-2bde-451e-ada2-fd91fdf52dac.png");
-      background-size: 4.6rem 0.6rem;
+      background-image: url("https://img.cbi360.net/2020/12/15/67b2c248-ea5e-4467-b9bf-4c7659207066.png");
+      background-size: 3.3rem 0.6rem;
     }
     .text-con{
       display: flex;

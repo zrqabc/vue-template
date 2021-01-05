@@ -22,8 +22,8 @@
       </div>
       <div class="bottom-con">
         <div class="left">
-          <router-link to="/rank" class="look-btn italic">查看企业榜单</router-link>
-          <a class="look-btn italic" @click="clickShare">晒成绩</a>
+          <router-link to="/rank" class="look-btn italic" :class="{wechat: isWeChat}">查看企业榜单</router-link>
+          <a v-if="isWeChat" class="look-btn italic" @click="clickShare">晒成绩</a>
         </div>
         <div class="right">
           <img src="https://static.dingtalk.com/media/lALPD2eDOTN-DXLNAQDNAQA_256_256.png_720x720g.jpg?bizType=im" alt="">
@@ -54,10 +54,20 @@
       ...mapState({
         report: (state) => { return state.report.report },
       }),
-      evaluateResult() {
+      evaluateResult() {//企业评语
         return this.report.evaluate ?
           this.evaluateList[this.report.evaluate.Key][this.report.evaluate.Value] :
           '建筑业的跨域强者，人生就要不停奋斗';
+      },
+      isWeChat() {//是否微信环境
+        let ua = navigator.userAgent.toLowerCase();
+        if(ua.match(/MicroMessenger/i) == "micromessenger") {
+          //在微信中打开
+          return true;
+        }else {
+          //不在微信中打开
+          return false;
+        }
       }
     },
     methods: {
@@ -153,10 +163,13 @@
         background: linear-gradient(-22deg, #312260, #312994);
         border-radius: 0.26rem;
         font-size: 14px;
-        margin: 0.42rem 0;
+        margin: 0.8rem 0;
       }
       .look-btn:nth-child(2){
         background: $linear-gradient;
+      }
+      .wechat{
+        margin: 0.42rem 0;
       }
     }
     .right{
