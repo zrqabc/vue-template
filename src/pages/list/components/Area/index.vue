@@ -178,7 +178,7 @@
             },
             orient: 'vertical',
             top: 'middle',
-            right: '10%',
+            right: '0%',
           },
           series: [
             {
