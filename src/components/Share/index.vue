@@ -73,7 +73,7 @@
       }
       .back-con{
         text-align: center;
-        margin-top: 3.7rem;
+        margin-top: 3rem;
         .btn{
           display: inline-block;
           width: 3rem;

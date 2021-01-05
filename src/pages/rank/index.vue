@@ -154,7 +154,7 @@
   }
   .btn-con{
     text-align: center;
-    margin: 0.2rem 0;
+    margin: 0.1rem 0;
     .btn{
       width: 1.25rem;
       height: 0.5rem;
@@ -174,7 +174,7 @@
     }
   }
   .list-con{
-    height: 74%;
+    height: 70%;
     overflow: scroll;
     table{
       width: 100%;
@@ -226,7 +226,7 @@
     font-size: 0.18rem;
     color: $blue;
     text-align: right;
-    margin-top: 0.2rem;
+    margin-top: 0.1rem;
   }
   .back-con{
     text-align: center;
