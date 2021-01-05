@@ -152,7 +152,7 @@
     text-align: center;
     color: $blue;
     line-height: 0.48rem;
-    margin-bottom: 0.72rem;
+    margin-bottom: 0.1rem;
     .text-item{
 
     }

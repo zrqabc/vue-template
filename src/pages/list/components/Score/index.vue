@@ -94,7 +94,7 @@
     margin-bottom: 0.5rem;
     .title-con{
       text-align: center;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.2rem;
       background-image: url("https://img.cbi360.net/2020/12/15/67b2c248-ea5e-4467-b9bf-4c7659207066.png");
       background-repeat: no-repeat;
       background-size: 2.93rem 0.6rem;
@@ -117,7 +117,7 @@
         margin-top: 0.1rem;
       }
       .num-con{
-        margin: 0.45rem 0;
+        margin: 0.2rem 0;
         font-size: 0.28rem;
         position: relative;
         p{
@@ -146,7 +146,7 @@
       text-align: center;
       line-height: 0.84rem;
       font-size: 0.28rem;
-      margin-top: 0.8rem;
+      margin-top: 0.5rem;
     }
   }
   .bottom-con{
