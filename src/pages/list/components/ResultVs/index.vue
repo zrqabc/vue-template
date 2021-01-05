@@ -49,16 +49,16 @@
         });
         let xdata = ['中标量/个','中标总额/W','荣誉/项','业务范围/个省'];
         let sdata1 = [
-          this.report.history.TenderCount,
-          Math.round(this.report.history.TenderMoney),
-          this.report.history.RedCount,
-          this.report.history.BusinessRangeCount
+          this.report.history.TenderCount || '',
+          Math.round(this.report.history.TenderMoney || ''),
+          this.report.history.RedCount || '',
+          this.report.history.BusinessRangeCount || ''
         ];
         let sdata2 = [
-          this.report.company.TenderCount,
-          Math.round(this.report.company.TenderMoneySum),
-          this.report.company.RedCompanyCount + this.report.company.RedBuilderCount + this.report.company.RedProjectCount,
-          this.report.projectRanges.length
+          this.report.company.TenderCount || '',
+          Math.round(this.report.company.TenderMoneySum || ''),
+          (this.report.company.RedCompanyCount + this.report.company.RedBuilderCount + this.report.company.RedProjectCount) || '',
+          this.report.projectRanges.length || ''
         ];
         let myChart = this.$echarts.init(document.getElementById('resultvs'));
         let option = {
@@ -168,6 +168,9 @@
                 show: true,
                 position: 'insideTopLeft',
                 offset: [0, -25],
+                // formatter: function(a){
+                //   return (a.data == 0) ? 'aa' : a.data
+                // }
                 // color: '#ABCBFF'
               },
               itemStyle: {
