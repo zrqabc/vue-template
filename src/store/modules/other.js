@@ -48,7 +48,16 @@ const actions = {
     return res;
   },
   async getIsShare({commit}, params) {//获取是否分享
-    let result = cookie.getCookie('isShare') ? true : false;
+    let result = false;
+    let ua = navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i) == "micromessenger") {
+      //在微信中打开
+      result = cookie.getCookie('isShare') ? true : false;
+    }else {
+      //不在微信中打开
+      result = true;
+    }
+
     commit('getIsShare', result);
   },
   async getIsClickShare({commit}, params) {//是否点击分享
