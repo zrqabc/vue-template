@@ -57,7 +57,6 @@ const actions = {
       //不在微信中打开
       result = true;
     }
-
     commit('getIsShare', result);
   },
   async getIsClickShare({commit}, params) {//是否点击分享

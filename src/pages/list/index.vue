@@ -43,7 +43,9 @@
     <!--验证码表单-->
     <Form></Form>
     <!--分享提示页-->
-    <Share v-if="isClickShare" :text="shareText"></Share>
+    <div v-if="isWeChat">
+      <Share v-if="isClickShare" :text="shareText"></Share>
+    </div>
   </div>
 </template>
 
@@ -90,7 +92,17 @@
       ...mapState({
         report: (state) => { return state.report.report },
         isClickShare: (state) => { return state.other.isClickShare },//是否点击分享
-      })
+      }),
+      isWeChat() {//是否微信环境
+        let ua = navigator.userAgent.toLowerCase();
+        if(ua.match(/MicroMessenger/i) == "micromessenger") {
+          //在微信中打开
+          return true;
+        }else {
+          //不在微信中打开
+          return false;
+        }
+      }
     },
     methods: {
       //初始化分享
