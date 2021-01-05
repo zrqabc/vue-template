@@ -150,10 +150,9 @@
               data: sdata1,
               label: {
                 show: true,
-                // position: 'top',
                 position: 'insideTopRight',
-                // color: '#295EC6'
                 offset: [0, -25],
+                // color: '#295EC6'
               },
               itemStyle: {
                 color: '#295EC6'
@@ -162,12 +161,11 @@
             {
               name: '2020年',
               type: 'bar',
-              yAxisIndex: 1,
+              // yAxisIndex: 1,
               data: sdata2,
               barGap: '0%',//不同系列的柱间距离
               label: {
                 show: true,
-                // position: [10, -35],
                 position: 'insideTopLeft',
                 offset: [0, -25],
                 // color: '#ABCBFF'
