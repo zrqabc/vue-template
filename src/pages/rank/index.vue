@@ -56,7 +56,7 @@
       </van-dialog>
     </div>
     <!--分享提示页-->
-    <Share v-if="!isShare"></Share>
+    <!--<Share v-if="!isShare"></Share>-->
   </div>
 </template>
 
