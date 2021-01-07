@@ -80,7 +80,7 @@
         if(!this.phone){
           this.$toast('请输入手机号码');
           return false;
-        }else if(!/^1[345678]\d{9}$/.test(this.phone)){
+        }else if(!/^1[3456789]\d{9}$/.test(this.phone)){
           this.$toast('请输入正确的手机号码');
           return false;
         }else {
@@ -92,7 +92,7 @@
         if(!this.phone){
           this.$toast('请输入手机号码');
           return false;
-        }else if(!/^1[345678]\d{9}$/.test(this.phone)){
+        }else if(!/^1[3456789]\d{9}$/.test(this.phone)){
           this.$toast('请输入正确的手机号码');
           return false;
         }else if(!this.verifyCode){
