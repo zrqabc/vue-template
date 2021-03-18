@@ -19,20 +19,20 @@ module.exports = {
       },
     }
   },
-  devServer: {
-    host: '0.0.0.0',
-    port: 8080, // 端口
-    open: false, // 启动后打开浏览器
-    proxy: {
-      //配置跨域
-      '/api': {
-        target: "http://apiappop.cbi360.net",
-        changOrigin: true,
-        pathRewrite: {
-          '/api': ''
-        }
-      }
-    }
-  }
+  // devServer: {
+  //   host: '0.0.0.0',
+  //   port: 8080, // 端口
+  //   open: false, // 启动后打开浏览器
+  //   proxy: {
+  //     //配置跨域
+  //     '/api': {
+  //       target: "http://apiappop.cbi360.net",
+  //       changOrigin: true,
+  //       pathRewrite: {
+  //         '/api': ''
+  //       }
+  //     }
+  //   }
+  // }
 
 }
